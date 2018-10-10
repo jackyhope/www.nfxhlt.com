@@ -16,7 +16,7 @@ class News extends Base {
 
     public function index(){
         if(request()->isAjax()){
-            $type = input('post.type');
+            $type = \BaseUtils::getStr(input('post.type'));
             if($type==1){
                 $data = $this->selectnews(1);
                 return json($data);

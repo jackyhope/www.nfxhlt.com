@@ -23,9 +23,9 @@ class Login extends Controller {
     public  function  index2(){
         $request = Request::instance();
         if($request->post()){
-            $account = $request->post('account');
+            $account = \BaseUtils::getStr($request->post('account'));
 	   $accountClean = preg_match('/^[a-z]+$/',$account);
-            $password = $request->post('password');
+            $password = \BaseUtils::getStr($request->post('password'));
 	   $pass = md5(md5($password).'nfxh');
             //查询数据库
             $list = Db::name('user')->where(['name'=>$account,'password'=>$pass])->select();

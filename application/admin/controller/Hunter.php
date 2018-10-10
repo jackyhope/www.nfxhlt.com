@@ -24,10 +24,10 @@ class  Hunter extends Base{
     //完成修改跳转展示页
     public  function  modify(){
         $request = Request::instance();
-        $id = $request->post('id');
-        $urlposition = $request -> post('url');
-        $ename = $request -> post('ename');
-        $cname = $request -> post('cname');
+        $id = \BaseUtils::getStr($request->post('id'),'int');
+        $urlposition = \BaseUtils::getStr($request -> post('url'));
+        $ename = \BaseUtils::getStr($request -> post('ename'));
+        $cname = \BaseUtils::getStr($request -> post('cname'));
 
         $pic = $_FILES['file'];
         //得到文件名称

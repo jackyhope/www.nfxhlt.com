@@ -76,10 +76,10 @@ class Content extends Base {
 
     //进入文章查看
     public function edit(){
-        $ac = input('get.ac');
-        $bc = input('get.bc');
+        $ac = \BaseUtils::getStr(input('get.ac'));
+        $bc = \BaseUtils::getStr(input('get.bc'));
 
-        $id = $this->request->get('id');
+        $id =\BaseUtils::getStr( $this->request->get('id'),'int');
         $current = Db::name('news') ->where('Id',$id) -> find();
         $picsimg = Db::name('picture') -> field('name') ->field('urlposition') -> where('Id',$current['png_id']) -> find();
         $picbgimg = Db::name('picture') ->field('name') ->field('urlposition') -> where('Id',$current['bg_id']) -> find();
@@ -95,15 +95,15 @@ class Content extends Base {
     //编辑指定的文章
     public function successedit(){
         $request = Request::instance();
-        $ac = $request->get('ac');
-        $bc = $request->get('bc');
-        $id = $request ->post('id');
-        $title = $request ->post('title');
-        $subtitle = $request ->post('subtitle');
-        $source = $request ->post('source');
-        $writer = $request ->post('writer');
-        $url = $request ->post('url');
-        $content = $request ->post('content');
+        $ac = \BaseUtils::getStr($request->get('ac'),'string');
+        $bc = \BaseUtils::getStr($request->get('bc'));
+        $id = \BaseUtils::getStr($request ->post('id'));
+        $title = \BaseUtils::getStr($request ->post('title'));
+        $subtitle = \BaseUtils::getStr($request ->post('subtitle'));
+        $source = \BaseUtils::getStr($request ->post('source'));
+        $writer = \BaseUtils::getStr($request ->post('writer'));
+        $url = \BaseUtils::getStr($request ->post('url'));
+        $content = \BaseUtils::getStr($request ->post('content'));
 
         //背景图
         $pic = $_FILES['bgimg'];

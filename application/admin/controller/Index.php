@@ -33,7 +33,7 @@ class Index extends Base
     }
 
     public function edit(){
-        $acname = input('get.ac');
+        $acname = \BaseUtils::getStr(input('get.ac'));
         $this->assign('acname',$acname);
         return $this->fetch();
     }

@@ -38,14 +38,14 @@ class Upload extends Base{
             'replace'  => true,
         );
         $request = Request::instance();
-        $fsize = input('post.size');		//本次上传的文件大小
-        $findex = input('post.indexCount');	//上传数据分片的索引
-        $ftotal = input('post.totalCount');	//上传数据分片的总数
-        $ftype = input('post.type');		//上传的类型
+        $fsize = \BaseUtils::getStr(input('post.size'));		//本次上传的文件大小
+        $findex = \BaseUtils::getStr(input('post.indexCount'));	//上传数据分片的索引
+        $ftotal = \BaseUtils::getStr(input('post.totalCount'));	//上传数据分片的总数
+        $ftype = \BaseUtils::getStr(input('post.type'));		//上传的类型
         //$fdata =  request()->file('file');		//数据
         $fdata = $_FILES['file'];
 
-        $file['ext'] = strtolower(substr(strrchr(input('post.name'), '.'), 1));
+        $file['ext'] = strtolower(substr(strrchr(\BaseUtils::getStr(input('post.name')), '.'), 1));
 
         if(!in_array($file['ext'],$config['exts'])){
             $res['info'] = '不允许的文件类型';
@@ -53,13 +53,13 @@ class Upload extends Base{
             $this->res($res);
         }
 
-        if(empty( input('post.module') ) || input('post.module') == 'undefined'){		//保存的模块
+        if(empty( \BaseUtils::getStr(input('post.module')) ) || \BaseUtils::getStr(input('post.module')) == 'undefined'){		//保存的模块
             $module = 'default';
         }else{
-            $module = input('post.module');
+            $module = \BaseUtils::getStr(input('post.module'));
         }
 
-        $fname = input('post.name');
+        $fname = \BaseUtils::getStr(input('post.name'));
 
         //$appName = str_replace('http://','',$_SERVER['HTTP_ORIGIN']);
         //$appName = str_replace(config('DOMAIN'),'',$appName);

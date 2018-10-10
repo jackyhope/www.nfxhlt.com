@@ -16,7 +16,7 @@ class Detail extends Base
     //数据库访问压力加大了
     public function index(){
         $request = Request::instance();
-        $id = input('get.newsid');
+        $id = \BaseUtils::getStr(input('get.newsid'),'int');
 
         if($request->get('orientation')){
             $flag = $request->get('orientation');

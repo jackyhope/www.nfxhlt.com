@@ -14,7 +14,7 @@ class Detail extends Base {
     }
 
     public function index(){
-        $id = input('get.name/name');
+        $id = \BaseUtils::getStr(input('get.name/name'));
         $data = db('news')->where("id",$id)->field('id,title,subtitle,source,writer,time,content')->select();
         $data[0]['content'] = str_replace('upload','/upload',$data[0]['content']);
 	$data[0]['content'] = str_replace('img src','img style="max-width:95%;height:auto;margin: 0 auto;display: block;" src',$data[0]['content']);
@@ -24,8 +24,8 @@ class Detail extends Base {
     //上下页方法
     public function done(){
         if(request()->isAjax()){
-            $type = input("post.type");
-            $id = input("post.id");
+            $type = \BaseUtils::getStr(input("post.type"));
+            $id = \BaseUtils::getStr(input("post.id"));
             if($type=="prev"){
                 return $this->selectnews($id,"-1");
             }elseif ($type=="next"){
