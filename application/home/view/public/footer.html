@@ -1,0 +1,60 @@
+<!--网站地图-->
+<div class="webmap" style="background-color: #ffffff;height: 3rem;width: 100rem">
+    <a class="webmapa" href="{:url('home/index/index')}">首页</a>
+   <div class="webmapl">   </div>
+    <a class="webmapa" href="{:url('home/fast/index')}"> 极速猎头服务</a>
+    <div class="webmapl">   </div>
+    <a class="webmapa" href="{:url('home/about/index')}">关于我们</a>
+    <div class="webmapl">   </div>
+    <a class="webmapa" href="{:url('home/server/index')}">服务保障</a>
+    <div class="webmapl">   </div>
+    <a class="webmapa" href="{:url('home/news/index')}" style="border: none;">资讯中心</a>
+</div>
+<!--footer-->
+<div class="footer">
+    <div class="footer-img">
+        <!--<img src="__STATIC__/images/index/tel.png" alt="">-->
+    </div>
+    <div class="footer-text" style="position:relative">
+        <span class="jltd"></span>
+        <span>总部地址：</span>
+        <span>主要服务区域以及办公地点：</span>
+        <input type="button" onclick="openchat()" value="免费咨询">
+        <span>友情链接：
+             {volist name="url" id="vo"}<a href="javascript:void(0);" onclick="window.open('{$vo[\'url\']}')">{$vo['name']}</a>&nbsp;{/volist}
+            </span>
+        <span class="grqz">个人求职：{$footer.jobemail}</span>
+        <span class="jrwm">加入我们：{$footer.joinus}</span>
+        <span class="dz">{$footer.address}</span>
+        <span class="zbdz">重庆市沙坪坝区西园北街6号附10号22-1</span>
+    </div>
+    <div class="footer-2code">
+        <div><img src="__STATIC__{$wechat['urlposition']}{$wechat['name']}" alt=""><span>官方微博</span></div>
+        <div><img src="__STATIC__{$qq['urlposition']}{$qq['name']}" alt=""><span>官方微信</span></div>
+    </div>
+</div>
+<script>
+    //网站地图隐藏右竖条
+$(document).ready(function () {
+    $(".webmapa").on("mouseover",function () {
+        var next = $(this).next().attr("class");
+        var prev = $(this).prev().attr("class");
+        if(next){
+            $(this).next().css("background-color","#ffffff");
+            if(prev){
+                $(this).prev().css("background-color","#ffffff");
+            }
+        }
+    });
+    $(".webmapa").on("mouseout",function () {
+        var next = $(this).next().attr("class");
+        var prev = $(this).prev().attr("class");
+        if(next){
+            $(this).next().css("background-color","#bb565f")
+            if(prev){
+                $(this).prev().css("background-color","#bb565f");
+            }
+        }
+    })
+})
+</script>

@@ -1,0 +1,17 @@
+<!--侧边栏导航-->
+<nav>
+    <ul>
+        <li><img src="__STATIC__/mobile/images/logo.png" alt=""></li>
+        <li><a {if condition="request()->controller() eq 'Index'"}class="licheck"{/if} href="{:url('index/index')}">首页</a></li>
+        <li><a {if condition="request()->controller() eq 'About'"}class="licheck"{/if} href="{:url('about/index')}">关于我们</a></li>
+        <li><a {if condition="request()->controller() eq 'Server'"}class="licheck"{/if} href="{:url('server/index')}">服务保障</a></li>
+        <li><a {if condition="request()->controller() eq 'News'"}class="licheck"{elseif condition="request()->controller() eq 'Detail'"}class="licheck"{else/}{/if} href="{:url('news/index')}">新闻资讯</a></li>
+    </ul>
+</nav>
+
+<!--顶部-->
+<div class="menu">
+    <img class="menulogo" src="__STATIC__/mobile/images/logo.png" alt="logo">
+    <img class="menubtn" onclick="showmenu()" src="__STATIC__/mobile/images/list.png" alt="">
+    <a href="tel:13718767011"><img class="menuphone" src="__STATIC__/mobile/images/call.png" alt="phoneimg"></a>
+</div>

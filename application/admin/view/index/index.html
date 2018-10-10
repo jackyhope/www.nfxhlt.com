@@ -1,0 +1,57 @@
+{extend name="common/common"/}
+{block name="body-menu"}
+
+<div class="vernav2 iconmenu" >
+    <ul>
+        <li class="has-sub">
+            <a href="#seo">
+                <i class="fa fa-list-alt"></i>SEO设置<i class="fa fa-angle-down"></i>
+            </a>
+            <ul id="seo" class="sub-menu">
+                <li>
+                    <a href="admin/index/keywords">
+                        <i class="fa fa-angle-right"></i>网站管理
+                    </a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="admin/index/title">-->
+                        <!--<i class="fa fa-angle-right"></i>网站标题管理-->
+                    <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li class="has-sub">
+            <a href="#url">
+                <i class="fa fa-list-alt"></i>友情链接设置<i class="fa fa-angle-down"></i>
+            </a>
+            <ul id="url" class="sub-menu">
+                <li>
+                    <a href="admin/index/friendlyurl">
+                        <i class="fa fa-angle-right"></i>友情链接管理
+                    </a>
+                </li>
+                <!--<li>-->
+                <!--<a href="admin/index/title">-->
+                <!--<i class="fa fa-angle-right"></i>网站标题管理-->
+                <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </li>
+    </ul>
+</div>
+{/block}
+{block name="body-main"}
+
+
+{/block}
+{block name="footer-ext"}
+<script>
+    function change(data) {
+        data.attr('id','open');
+        var open = $("#open").siblings();
+        $(open).attr('id','close');
+    }
+</script>
+{/block}

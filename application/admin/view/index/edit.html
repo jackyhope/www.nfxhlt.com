@@ -1,0 +1,170 @@
+{extend name="common/common"/}
+{block name="body-menu"}
+
+<div class="vernav2 iconmenu">
+    <ul>
+        <li class="has-sub">
+            <a href="#open">
+                <i class="fa fa-list-alt"></i>SEO设置<i class="fa fa-angle-down"></i>
+            </a>
+            <ul id="open" class="sub-menu">
+                <li>
+                    <a href="admin/index/keywords">
+                        <i class="fa fa-angle-right"></i>网站管理
+                    </a>
+                </li>
+                <!--<li>-->
+                <!--<a href="admin/index/title">-->
+                <!--<i class="fa fa-angle-right"></i>网站标题管理-->
+                <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li class="has-sub">
+            <a href="#url">
+                <i class="fa fa-list-alt"></i>友情链接设置<i class="fa fa-angle-down"></i>
+            </a>
+            <ul id="url" class="sub-menu">
+                <li>
+                    <a href="admin/index/friendlyurl">
+                        <i class="fa fa-angle-right"></i>友情链接管理
+                    </a>
+                </li>
+                <!--<li>-->
+                <!--<a href="admin/index/title">-->
+                <!--<i class="fa fa-angle-right"></i>网站标题管理-->
+                <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </li>
+    </ul>
+</div>
+{/block}
+{block name="header-ext"}
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/plugins/editor3/wangEditor.css">
+    <link rel="stylesheet" href="__STATIC__/css/plugins/h5upload/h5upload.css" rel="stylesheet" />
+    <script src="__STATIC__/js/plugins/h5upload/h5upload.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/plugins/editor3/wangEditor.min.js"></script>
+{/block}
+{block name="body-main"}
+<div class="pageheader notab">
+    <h1 class="pagetitle">友情链接 <small>添加</small></h1>
+</div>
+
+<div id="contentwrapper" class="contentwrapper">
+
+    <div class="contenttitle2">
+        <h3>友情链接添加</h3>
+    </div>
+
+    <form method="post" action="admin/index/addurl" class="form-horizontal" data-parsley-validate="true" id="myform">
+        <input type="hidden" name="id" value="#">
+
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">关键词位置</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<select name = "position_id" class="uniformselect" required>-->
+                    <!--<option> - 请选择 - </option>-->
+                    <!--<option>首页</option>-->
+                    <!--<option>关于我们</option>-->
+                    <!--<option>服务保障</option>-->
+                    <!--<option>咨询中心</option>-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">类型</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<select name = "type_id" class="uniformselect" required>-->
+                    <!--<option> - 请选择 - </option>-->
+                    <!--<volist name="type" id="#">-->
+                        <!--<option data-link = "$vo['link']"-->
+                        <!--<if condition="#">-->
+                            <!--selected = "selected"-->
+                        <!--</if>-->
+                        <!--value="$vo.id">$vo.name</option>-->
+                    <!--</volist>-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--
+        <div class="form-group" data-type="1,2">
+            <label class="col-md-3 control-label">图片</label>
+            <div class="col-md-9">
+                <input type="upload" name="icon" value="$vo.icon"/>
+            </div>
+        </div>
+        -->
+
+
+
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">文章标题</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<input type="text" name="title" class="form-control" placeholder="输入文章标题" value="$data.title" required />-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">链接名</label>
+            <div class="col-md-9">
+                <input type="text" name="name" class="form-control" placeholder="请输入链接名" value="" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">链接</label>
+            <div class="col-md-9">
+                <input type="text" name="url" class="form-control" placeholder="请输入链接" value="" required />
+            </div>
+        </div>
+
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">来源</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<input type="text"  value="$data.from"  name="from" class="form-control" placeholder="请输入来源" required />-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">作者</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<input type="text" value="$data.author" name="author" class="form-control" placeholder="请输入作者" required />-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">摘要</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<textarea type="text" name="description" class="form-control" placeholder="请输入描述" style="height:90px" required>$data['description']</textarea>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">正文</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<div id="editor"><php echo htmlspecialchars_decode();?></div>-->
+                <!--<textarea class="hidden"  data-id='editor' name="content"></textarea>-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-9">
+                <button type="submit" class="btn btn-sm btn-primary">确定提交</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+</block>
+{/block}
+{block name="footer-ext"}
+
+{/block}

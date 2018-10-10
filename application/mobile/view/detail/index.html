@@ -1,0 +1,114 @@
+{extend name="public/common" /}
+{block name="body"}
+<!--详情正文-->
+<div class="detail">
+    <div class="detail-d">
+        <div class="adress">
+            <a href="">资讯中心></a>
+            <a href="">企业新闻></a>
+            <a href="">新闻标题</a>
+        </div>
+        <div class="news-add">
+            <h1 class="news-t">{$data.0.title}</h1>
+            <h2 class="news-author">{$data.0.writer}</h2>
+            <h2 class="news-time">{$data.0.time|date = 'Y-m-d',###}</h2>
+        </div>
+        <div class="news-content">
+            {$data.0.content}
+        </div>
+        <div class="nextorprev">
+            <input type="button" class="prev" onclick="porn(this)" alt="{$data.0.id}" value="上一篇">
+            <input type="button" class="next" onclick="porn(this)" alt="{$data.0.id}" value="下一篇">
+        </div>
+    </div>
+</div>
+<script>
+    function porn(data) {
+        var done = $(data).attr("class");
+        var id = $(data).attr("alt");
+        switch (done){
+            case "prev":
+                $.ajax({
+                    url:"done",
+                    type:"post",
+                    data:{type:"prev",id:id},
+                    datatype:"json",
+                    error:function () {
+                        console.log("未知错误");
+                    },
+                    success:function (data,status) {
+                        if(data=="false"){
+                            alert("已经是第一篇新闻了");
+                        }else{
+                            $(".news-t").html(data['title']);
+                            $(".news-author").html(data['writer']);
+                            $(".news-time").html(format(data['time']));
+                            $(".news-content").html(data['content']);
+                            $(".prev").attr("alt",data['Id']);
+                            $(".next").attr("alt",data['Id']);
+                            window.scrollTo(0,0);
+                        }
+                    }
+                });
+                break;
+            case "next":
+                $.ajax({
+                    url:"done",
+                    type:"post",
+                    data:{type:"next",id:id},
+                    datatype:"json",
+                    error:function () {
+                        console.log("未知错误");
+                    },
+                    success:function (data,status) {
+                        if(data=="false"){
+                            alert("已经是最后一篇新闻了");
+                        }else{
+                            $(".news-t").html(data['title']);
+                            $(".news-author").html(data['writer']);
+                            $(".news-time").html(format(data['time']));
+                            $(".news-content").html(data['content']);
+                            $(".prev").attr("alt",data['Id']);
+                            $(".next").attr("alt",data['Id']);
+                            window.scrollTo(0,0);
+                        }
+                    }
+                })
+        }
+    }
+    function add0(m){return m<10?'0'+m:m }
+    function format(timestamp)
+    {
+        //timestamp是整数，否则要parseInt转换,不会出现少个0的情况
+        var time = new Date(timestamp*1000);
+        var year = time.getFullYear();
+        var month = time.getMonth()+1;
+        var date = time.getDate();
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        return year+'-'+add0(month)+'-'+add0(date)/*+' '+add0(hours)+':'+add0(minutes)+':'+add0(seconds)*/;
+    }
+</script>
+<!--底部-->
+<!--
+<div class="set-h footer footer-blue">
+    <img src="__STATIC__/mobile/images/index/tel.png" alt="联系电话">
+    <div>
+        <span>个人求职：nfxhlt@qq.com</span>
+    </div>
+    <div><span>加入我们：jxxhhr@163.com</span></div>
+    <div><span>总部地址：重庆市沙坪坝区西园北街6号附10号22-1</span></div>
+    <div>
+        <span>主要服务区域及办公地点：</span>
+        <span class="dz-d">北京/上海/深圳/广州/天津/杭州/南京/成都/重庆</span>
+    </div>
+    <div class="codeimg">
+        <img src="__STATIC__/mobile/images/sina12.png" alt="">
+        <img class="code2" src="__STATIC__/mobile/images/2code.png" alt="">
+        <a href="tel:13718767011"><img class="callimg" src="__STATIC__/mobile/images/white.png" alt=""></a>
+        <a  class="callcontent" href="tel:13718767011">联系我们</a>
+    </div>
+</div>
+-->
+{/block}

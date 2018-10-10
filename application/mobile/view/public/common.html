@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <?php header("Cache-Control: no-cache"); ?>
+    <title>{$head.SEOtitle}</title>
+    <meta name="keywords" content="{$head.SEOkeyword}">
+    <meta name="description" content="{$head.SEOsubscribe}">
+    <script>
+        var date = Date.parse(new Date());
+        document.write('<link rel="stylesheet" href="__STATIC__/mobile/css/{:request()->controller()}.css?v='+date+'"> <link rel="stylesheet" href="__STATIC__/mobile/css/common.css?v='+date+'">');
+    </script>
+    <script src="__STATIC__/mobile/js/jquery-1.9.1.min.js"></script>
+    <script src="__STATIC__/mobile/js/jquery-1.11.1.min.js"></script>
+    <script src="__STATIC__/mobile/js/{:request()->controller()}.js"></script>
+    <script src="__STATIC__/mobile/js/common.js"></script>
+</head>
+<body>
+<main>
+    {include file="public/header" /}
+    {block name="body"}{/block}
+</main>
+</body>
+</html>

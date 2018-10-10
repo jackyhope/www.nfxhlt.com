@@ -1,0 +1,72 @@
+{extend name="public/common" /}
+{block name="banner"}
+<!--banner-->
+<div class="banner" style="height: 26rem ;" >
+    <img style="height: 26rem" src="../../{$list.banner}" alt="">
+</div>
+<!--banner-->
+{/block}}
+{block name="body"}
+<!--body-->
+<div class="cot">
+    <div class="five-cn">
+        <div class="qk"></div>
+        <div class="cn-text">
+            {volist name="serverTitle" id="vo"}
+            {eq name="vo.source" value="promiss1"}
+            <span>{$vo['titlename']}</span>
+            <span>{$vo['subname']}:<span>&nbsp;&nbsp;&nbsp;&nbsp;{$vo['titlecontent']}</span></span>
+            {/eq}{/volist}
+            {volist name="serverTitle" id="vo" }
+            {eq name="vo.source" value="promiss2"}
+            <span>{$vo['subname']}:<span>&nbsp;&nbsp;&nbsp;&nbsp;{$vo['titlecontent']}</span></span>{/eq}{/volist}
+            {volist name="serverTitle" id="vo" }
+            {eq name="vo.source" value="promiss3"}
+            <span style="letter-spacing: 0.395rem">{$vo['subname']}:<span style="letter-spacing: 0px">&nbsp;&nbsp;&nbsp;{$vo['titlecontent']}</span></span>{/eq}{/volist}
+            {volist name="serverTitle" id="vo" }
+            {eq name="vo.source" value="promiss4"}
+            <span>{$vo['subname']}:<span>&nbsp;&nbsp;&nbsp;&nbsp;{$vo['titlecontent']}</span></span>{/eq}{/volist}
+            {volist name="serverTitle" id="vo" }
+            {eq name="vo.source" value="promiss5"}
+            <span>{$vo['subname']}:<span>&nbsp;&nbsp;&nbsp;&nbsp;{$vo['titlecontent']}</span></span>{/eq}{/volist}
+            <div>
+                <input type="button" value="免费资讯">
+                <span>服务热线：137-1876-7011</span>
+            </div>
+        </div>
+    </div>
+    <!-- 服务监督 -->
+    <div class="supervision">
+        <span>服务监督</span>
+        <div class="line"></div>
+        <div class="s-span">
+            <span>如果您在以下环节遇到问题，</span>
+            <span>除了直接跟猎头顾问进行沟通，</span>
+            <span>还可以拨打投诉电话或发邮件反映情况，</span>
+            <span>南方新华将为您提供全程放心服务。</span>
+        </div>
+        <table cellspacing="0" cellpadding="0" class="s-table">
+            <tbody>
+            <tr class="t-tr1">
+                <th>编号</th>
+                <th>服务要索</th>
+                <th>服务标准</th>
+                <th>投诉电话</th>
+                <th>投诉邮箱</th>
+            </tr>
+            {volist name="serverTable" id="vo"}
+            <tr>
+                <td>{$vo['number']}</td>
+                <td>{$vo['component']}</td>
+                <td>{$vo['standard']}</td>
+                <td>{$vo['phone']}</td>
+                <td>{$vo['email']}</td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+    </div>
+    <!-- 服务监督 -->
+</div>
+<!--body-->
+{/block}

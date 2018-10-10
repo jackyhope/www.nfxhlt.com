@@ -1,0 +1,144 @@
+{extend name="common/common"/}
+{block name="body-menu"}
+{include file="image/menu" /}
+{/block}
+{block name="body-main"}
+<script>
+    var UPLOAD_URL = "/web/public/admin/upload/index";
+</script>
+<div class="centercontent">
+
+    <div class="pageheader notab">
+        <h1 class="pagetitle">微信二维码修改<small></small></h1>
+    </div>
+
+    <div id="contentwrapper" class="contentwrapper">
+
+        <form method="post" action="admin/image/doqqcode" class="form-horizontal" data-parsley-validate="true" enctype="multipart/form-data" >
+            <input type="hidden" name="id" value="{$list['Id']}">
+
+            <div class="form-group" style="display: none">
+                <label class="col-md-3 control-label">广告位置</label>
+                <div class="col-md-9">
+                    <select name = "position_id" class="uniformselect" required>
+
+                        <option> - 请选择 - </option>
+                        <option value="1">WEB首页顶部大图</option>
+                        <option value="2">WEB首页轮播图</option>
+                        <option value="15">服务项目顶部大图</option>
+                        <option value="16">服务项目大图</option>
+                        <option value="26">最新活动顶部大图</option>
+                        <option value="17">服务项目底部合作伙伴</option>
+                    </select>
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">猎头名</label>-->
+            <!--<div class="col-md-9">-->
+            <!--<input type="text" name="name" class="form-control" placeholder="输入猎头名" value="" required />-->
+            <!--</div>-->
+            <!-- </div> -->
+            <!-- <div class="form-group"> -->
+            <!-- <label class="col-md-3 control-label">猎头介绍</label> -->
+            <!-- <div class="col-md-9">-->
+            <!--<input type="text" name="name" class="form-control" placeholder="请输入介绍" value="" required />-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-md-3 control-label">类型</label>
+                <div class="col-md-9">
+                    <select name = "type_id" class="uniformselect" required>
+                        <!--<option> - 请选择 - </option>-->
+                        <option data-link = "0" value="1">图片 - 无跳转</option>
+                        <!--<option data-link = "1" value="2">图片 - 跳转链接</option>-->
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" data-type="1,2">
+                <label class="col-md-3 control-label">图片</label>
+                <div class="col-md-9">
+                    <input id="file" name="file" type="file" accept="image/png, image/jpeg, image/gif, image/jpg" onchange="changepic(this)" required/><br/>
+                    <img src="__STATIC__{$list['urlposition']}{$list['name']}" id="show" width="200">
+                </div>
+            </div>
+
+
+            <!--<div class="form-group" data-type="3">-->
+            <!--<label class="col-md-3 control-label">文字标题</label>-->
+            <!--<div class="col-md-9">-->
+            <!--<input type="text" name="title" class="form-control" placeholder="输入文字标题" value=""/>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group" id="link">-->
+            <!--<label class="col-md-3 control-label">链接地址</label>-->
+            <!--<div class="col-md-9">-->
+            <!--<input type="text" name="url" class="form-control" placeholder="输入链接URL地址" value=""/>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <button type="submit" class="btn btn-sm btn-primary">确定提交</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!--
+<link rel="stylesheet" href="assets/plugins/h5upload/h5upload.css" rel="stylesheet" />
+<script src="assets/plugins/h5upload/h5upload.js"></script>
+
+
+-->
+
+<!--<script type="text/javascript" src="__STATIC__/js/custom/general.js"></script>-->
+
+{/block}
+{block name="footer-ext"}
+<script>
+    (function($){
+        $('[name=type_id]').change(function(){
+            var type = $(this).val();
+            $('[data-type]').each(function(i,e){
+                var rs = $(e).attr('data-type').split(',');
+                var hidden = true;
+                for(var o in rs){
+                    if(rs[o] == type){
+                        hidden = false;
+                        break;
+                    }
+                }
+
+                if(hidden){
+                    $(this).hide();
+                }else{
+                    $(this).show();
+                }
+
+            });
+            if($(this).find("option:selected").attr('data-link') == 1){
+                $('#link').show();
+            }else{
+                $('#link').hide();
+            }
+        }).change();
+    })(jQuery);
+    function changepic(e) {
+        var reads= new FileReader();
+        var  f=document.getElementById('file').files[0];
+        reads.readAsDataURL(f);
+        reads.onload=function (e) {
+            document.getElementById('show').src=this.result;
+        };
+    }
+</script>
+{/block}

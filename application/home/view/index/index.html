@@ -1,0 +1,260 @@
+{extend name="public/common" /}
+{block name="banner"}
+<div class="banner" >
+    <img src='{$list.banner}' alt="">
+    <!--<input type="button" value="了解详情" onclick="window.open('http://www.huiliewang.com')">-->
+<input type="button" value="了解详情" onclick="openchat()">
+</div>
+{/block}
+{block name="body"}
+<!--猎头顾问推荐-->
+<div class="lt">
+    <table class="table-style" style="width: auto;margin: 0 auto">
+        <tr>
+            <td class="lt-1">资深猎头顾问</td>
+        </tr>
+        <tr>
+            <td class="lt-2" style="padding-top: 1rem">
+                <span style="display: block;">600多名专家型猎头顾问，覆盖各大行业、经验丰富</span>
+                <span style="display: block;">既可精准高效寻访人才，又可提供优质的咨询式猎头服务</span>
+                <span style="display: block;">为企业搭建和优化人力资源管理体系</span>
+            </td>
+        </tr>
+    </table>
+    <div class="lt-img">
+        <table class="img-table">
+            <tr>
+                <td><div class="ul-jt"><img src="__STATIC__/images/fast/left.png" alt="right"></div></td>
+                <td class="allltimg">
+                    <ul class="img-ul">
+                        {volist name="pic" id="vo"}
+                            <li class="lt-li">
+                                <div class="lt-div">
+                                    <img src="__STATIC__/images/index/{$vo['name']}" alt="{$vo['subscribe']}">
+                                    <span class="ltname"></span>
+                                    <span class="ltdescription"></span>
+                                </div>
+                            </li>
+                        {/volist}
+                    </ul>
+                </td>
+                <td><div class="ul-jt"><img src="__STATIC__/images/fast/right.png" alt="left"></div></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+    <script>
+        //猎头照片轮播
+        var c = 0;
+        $(document).ready(function () {
+            var length = $(".img-ul").children().length;
+            for(let i = 0;i < length; i++){
+                var alt = $($($(".img-ul").children().children().get(i)).children().get(0)).attr("alt");
+                var altarr = new Array();
+                altarr = alt.split("/");
+                $($($(".img-ul").children().children().get(i)).children().get(1)).html(altarr[0]);
+                $($($(".img-ul").children().children().get(i)).children().get(2)).html(altarr[1]);
+            }
+        });
+        $(".ul-jt").on("click",function () {
+            if(c == 0){
+                c++;
+                var length = $(".img-ul").children().length;
+                var alt = $(this).children().attr("alt");
+                if(alt == "left"){
+                    $(".lt-div").addClass("ltimgtoleft");
+                    var firstsrc = $($($(".img-ul").children().children().get(0)).children().get(0)).attr("src");
+                    var firstalt  = $($($(".img-ul").children().children().get(0)).children().get(0)).attr("alt");
+                    setTimeout(function () {
+                        for(let i = 0;i < length;i++){
+                            if(i<length-1){
+                                var nextsrc = $($($(".img-ul").children().children().get(i+1)).children().get(0)).attr("src");
+                                var nextalt = $($($(".img-ul").children().children().get(i+1)).children().get(0)).attr("alt");
+                                var nextaltarr = nextalt.split("/");
+                                $($($(".img-ul").children().children().get(i)).children().get(0)).attr("src",nextsrc);
+                                $($($(".img-ul").children().children().get(i)).children().get(0)).attr("alt",nextalt);
+                                $($($(".img-ul").children().children().get(i)).children().get(1)).html(nextaltarr[0]);
+                                $($($(".img-ul").children().children().get(i)).children().get(2)).html(nextaltarr[1]);
+                            }else{
+                                $($($(".img-ul").children().children().get(i)).children().get(0)).attr("src",firstsrc);
+                                $($($(".img-ul").children().children().get(i)).children().get(0)).attr("alt",firstalt);
+                                var firstaltarr =firstalt.split("/");
+                                $($($(".img-ul").children().children().get(i)).children().get(1)).html(firstaltarr[0]);
+                                $($($(".img-ul").children().children().get(i)).children().get(2)).html(firstaltarr[1]);
+                            }
+                            $(".lt-div").removeClass("ltimgtoleft");
+                        }
+                        c = 0;
+                    },1000)
+                }else if(alt =="right"){
+                    $(".lt-div").addClass("ltimgtoright");
+                    var lastsrc = $($($(".img-ul").children().children().get(length-1)).children().get(0)).attr("src");
+                    var lastalt = $($($(".img-ul").children().children().get(length-1)).children().get(0)).attr("alt");
+                    var span1 = $($($(".img-ul").children().children().get(length-1)).children().get(1)).html();
+                    var span2 = $($($(".img-ul").children().children().get(length-1)).children().get(2)).html();
+                    $($(".img-ul").children().get(0)).before("<li class='lt-li'><div class='lt-div ltimgtoright'><img src="+lastsrc+" alt="+lastalt+"><span>"+span1+"</span><span>"+span2+"</span></div></li>");
+                    setTimeout(function () {
+                        $(".lt-div").removeClass("ltimgtoright");
+                        $($(".img-ul").children().get(length)).remove();
+                        c = 0;
+                    },1000)
+                }
+            }
+        })
+    </script>
+<!--猎头顾问推荐-->
+
+<!--服务流程-->
+<div class="server">
+    <table class="table-style" style="width: auto;margin: 0 auto">
+        <tr>
+            <td class="lt-1 lt-1-add">服务流程</td>
+        </tr>
+        <tr>
+            <td class="lt-2 lt-2-add" style="padding-top: 1rem">
+                <span style="display: block;">8大流程，标准化服务</span>
+                <span style="display: block;">最快24小时闪电交付，平均15天招聘到位</span>
+                <span style="display: block;">解决您的燃眉之急和后顾之忧</span>
+                </td>
+        </tr>
+    </table>
+    <img class="server-img" src="__STATIC__/images/index/serve.png" alt="">
+    <div class="ser-span">
+        <span>需求分析</span>
+        <span>限时寻访</span>
+        <span>人才测评</span>
+        <span>面试推荐</span>
+        <span>Offer谈判</span>
+        <span>背景调查</span>
+        <span>聘后EAP心理辅导</span>
+        <span>售后服务与HR活动支持</span>
+    </div>
+</div>
+<!--服务流程-->
+
+<!--资讯中心-->
+<div class="zx">
+    <table class="table-style" style="width: 20rem;margin: 0 auto">
+        <tr>
+            <td class="lt-1" style="color: white;border-color: white;">资讯中心</td>
+        </tr>
+    </table>
+    <div class="row-news">
+        <div class="news-left">
+            <span style="color: #333333;"><b>企业新闻</b></span>
+            {volist name="indexhnews" id="vo"}
+            <p>
+                <a class="news-a"  href="{:url('detail/index')}?newsid={$vo['Id']}">{$vo['title']}</a>
+                <a href="{:url('detail/index')}?newsid={$vo['Id']}" style="float: right;color: #333333;">{$vo['time']|date='Y-m-d',###}</a>
+            </p>
+            {/volist}
+            <p><a style="float: right;color: #333333;" href="{:url('home/news/index')}">更多</a></p>
+        </div>
+
+        <div class="news-right">
+            <span style="color: #333333;"><b>行业资讯</b></span>
+            <div><!--灰色空白不可删除--></div>
+            {volist name="indexnews" id="vo"}
+            <p>
+                <a style="display: inline-block; width: 18rem;word-break: keep-all;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;color: #333333;float:left"  href="{:url('detail/index')}?newsid={$vo['Id']}">{$vo['title']}</a>
+                <a href="{:url('detail/index')}?newsid={$vo['Id']}" style="float: right;color: #333333;">{$vo['time']|date='Y-m-d',###}</a>
+            </p>
+            {/volist}
+            <p><a style="float: right;color: #333333;" href="{:url('home/news/index')}">更多</a></p>
+        </div>
+    </div>
+</div>
+<!--资讯中心-->
+
+<!--图片中心-->
+<div class="imgcenter">
+    <table class="table-style" style="width: 20rem; margin: 0 auto">
+        <tr>
+            <td class="lt-1" style="color:#000000;">图片中心</td>
+        </tr>
+    </table>
+    <table class="img-center">
+        <tbody>
+        <tr id="img-list-1">
+            <td><img onclick="showbig(this)" src="{$list.pictures1}" alt=""></td>
+            <td><img onclick="showbig(this)" src="{$list.pictures2}" alt=""></td>
+            <td><img onclick="showbig(this)" src="{$list.pictures3}" alt=""></td>
+        </tr>
+        <tr id="img-list-2">
+            <td><img onclick="showbig(this)" src="{$list.pictures4}" alt=""></td>
+            <td><img onclick="showbig(this)" src="{$list.pictures5}" alt=""></td>
+            <td><img onclick="showbig(this)" src="{$list.pictures6}" alt=""></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--图片中心-->
+{/block}
+{block name="js"}
+<script>
+    function ltenter(data) {
+        var img =  $($(data).children().get(0));
+        var td = $(data);
+        var src = img.attr('src');
+        var num = td.index();
+        var text = $($($($(data).parent()).siblings()).children().get(num)).children('span');
+        fadediy(text);
+    }
+    function fadediy(data) {
+        //方式一 为指针进入图片显示内容 指针离开图片就隐藏内容 如果指针移动过快会出现BUG
+        /* if(data.css("display")=="none"&&data.css("opacity")=="0.1"){
+         var t = 0;
+         var timer = setInterval(function () {
+         data.css("display","inline-block");
+         t = t + 0.1;
+         data.css("opacity",t);
+         (t>0.9)? window.clearInterval(timer):false;
+         },50)
+         }
+         else if(data.css("display")=="inline-block"&&data.css("opacity")=="1"){
+         setTimeout(function () {
+         var t = 1;
+         var timer = setInterval(function () {
+         t = t - 0.1;
+         data.css("opacity",t);
+         if(t < 0.12){
+         window.clearInterval(timer);
+         data.css("display","none");
+         }
+         },50)
+         },1000)
+         }*/
+        //方式二 为指针进入图片显示内容，3秒后自动消失
+        if(data.css("opacity")==0){
+            var t = 0;
+            var timer = setInterval(function () {
+                data.css("opacity",t);
+                t = t + 0.1;
+                /*(t>0.9)?window.clearInterval(timer):false;*/
+                if(t>0.9){
+                    window.clearInterval(timer);
+                    setTimeout(function () {
+                        var t = 1;
+                        var timer2 = setInterval(function () {
+                            data.css("opacity",t);
+                            t = t- 0.1;
+                            if(t<0){
+                                window.clearInterval(timer2);
+                                data.css("opacity",0);
+                            }
+                        },50)
+                    },10000)//显示秒数
+                }
+            },50);
+        }
+    }
+    $(document).ready(function () {
+        /* var el = window.document.body;
+         window.document.body.onmouseover = function(event){
+         el = event.target;//鼠标每经过一个元素，就把该元素赋值给变量el
+         console.log('当前鼠标在', el, '元素上');//在控制台中打印该变量
+         };*/
+    })
+</script>
+{/block}

@@ -1,0 +1,322 @@
+{extend name="common/common"/}
+{block name="body-menu"}
+<div class="vernav2 iconmenu" >
+    <ul>
+        <li class="has-sub">
+            <a href="#newsqiye">
+                <i class="fa fa-list-alt"></i>新闻资讯管理<i class="fa fa-angle-down"></i>
+            </a>
+            <ul id="newsqiye" class="sub-menu">
+                <li>
+                    <a href="admin/content/newsqiye">
+                        <i class="fa fa-angle-right"></i>企业新闻
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/content/newshangye">
+                        <i class="fa fa-angle-right"></i>行业资讯
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/content/newsmeiti">
+                        <i class="fa fa-angle-right"></i>媒体报道
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li class="has-sub">
+            <a href="#news">
+                <i class="fa fa-list-alt"></i>其它文字管理<i class="fa fa-angle-down"></i>
+            </a>
+            <ul id="news" class="sub-menu">
+                <li>
+                    <a href="admin/content/wenhua">
+                        <i class="fa fa-angle-right"></i>企业文化
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/content/jianjie">
+                        <i class="fa fa-angle-right"></i>简介管理
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/content/chengnuo">
+                        <i class="fa fa-angle-right"></i>五大承诺
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/content/jiandu">
+                        <i class="fa fa-angle-right"></i>服务监督
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/content/dibu">
+                        <i class="fa fa-angle-right"></i>底部文字
+                    </a>
+                </li>
+                <!--<li>-->
+                <!--<a href="admin/content/newsdelete">-->
+                <!--<i class="fa fa-angle-right"></i>已删除文章-->
+                <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </li>
+    </ul>
+</div>
+{/block}
+{block name="header-ext"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/plugins/editor3/wangEditor.css">
+<link rel="stylesheet" href="__STATIC__/css/plugins/h5upload/h5upload.css" rel="stylesheet" />
+<script src="__STATIC__/js/plugins/h5upload/h5upload.js"></script>
+<script type="text/javascript" src="__STATIC__/js/plugins/editor3/wangEditor.min.js"></script>
+{/block}
+{block name="body-main"}
+<div class="pageheader notab">
+    <h1 class="pagetitle">
+        {switch name="$ac"}
+            {case value="newsqiye"}企业新闻{/case}
+            {case value="newshangye"}行业新闻{/case}
+            {case value="newsmeiti"}媒体报道{/case}
+        {/switch}
+        <small> {if condition="$bc eq 'gai'"}修改{else /}添加{/if}</small>
+    </h1>
+</div>
+
+<div id="contentwrapper" class="contentwrapper">
+
+    <div class="contenttitle2">
+        <h3>
+            {switch name="$ac"}
+            {case value="newsqiye"}企业新闻{/case}
+            {case value="newshangye"}行业新闻{/case}
+            {case value="newsmeiti"}媒体报道{/case}
+            {/switch}
+        </h3>
+    </div>
+    <form method="post" action="admin/content/successedit?ac={$ac}&bc={$bc}" class="form-horizontal" data-parsley-validate="true" id="myform" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$current['Id']}">
+        <!--<div class="form-group">-->
+            <!--<label class="col-md-3 control-label">关键词位置</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<select name = "position_id" class="uniformselect" required>-->
+                    <!--<option> - 请选择 - </option>-->
+                    <!--<option>首页</option>-->
+                    <!--<option>关于我们</option>-->
+                    <!--<option>服务保障</option>-->
+                    <!--<option>咨询中心</option>-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+        <!--<label class="col-md-3 control-label">类型</label>-->
+        <!--<div class="col-md-9">-->
+        <!--<select name = "type_id" class="uniformselect" required>-->
+        <!--<option> - 请选择 - </option>-->
+        <!--<volist name="type" id="#">-->
+        <!--<option data-link = ""-->
+        <!--<if condition="#">-->
+        <!--selected = "selected"-->
+        <!--</if>-->
+        <!--value=""></option>-->
+        <!--</volist>-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--
+        <div class="form-group" data-type="1,2">
+            <label class="col-md-3 control-label">图片</label>
+            <div class="col-md-9">
+                <input type="upload" name="icon" value="$vo.icon"/>
+            </div>
+        </div>
+        -->
+
+
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">新闻标题</label>
+            <div class="col-md-9">
+                <input type="text" name="title" class="form-control" placeholder="请输入新闻标题" value="{$current['title']}" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">副标题</label>
+            <div class="col-md-9">
+                <input type="text" name="subtitle" class="form-control" placeholder="请输入副标题" value="{$current['subtitle']}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">来源</label>
+            <div class="col-md-9">
+                <input type="text" name="source" class="form-control" placeholder="请输入来源" value="{$current['source']}" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">作者</label>
+            <div class="col-md-9">
+                <input type="text" name="writer" class="form-control" placeholder="请输入作者" value="{$current['writer']}" required />
+            </div>
+        </div>
+
+        <div class="form-group" style="display: none;">
+            <label class="col-md-3 control-label">链接</label>
+            <div class="col-md-9">
+                <input type="text" name="url" class="form-control" placeholder="请输入链接" value="http://localhost/home/detail/index.html" required />
+            </div>
+        </div>
+        <div class="form-group" style="display: none">
+            <label class="col-md-3 control-label">类型</label>
+            <div class="col-md-9">
+                <select name = "type_id" class="uniformselect" required>
+                    <!--<option> - 请选择 - </option>-->
+                    <option data-link = "0" value="1">图片 - 无跳转</option>
+                    <!--<option data-link = "1" value="2">图片 - 跳转链接</option>-->
+                </select>
+            </div>
+        </div>
+
+        {if condition="$ac eq 'newsmeiti'"}
+            <div class="form-group" data-type="1,2">
+                <label class="col-md-3 control-label">媒体报道首页展示图</label>
+                <div class="col-md-9">
+                    <input  name="simg" type="file" accept="image/png, image/jpeg, image/gif, image/jpg" onchange="changepic(this)" required/><br/>
+                    <img width="200">
+                </div>
+            </div>
+        {else/}
+        <div class="form-group" data-type="1,2">
+            <label class="col-md-3 control-label">新闻略缩图</label>
+            <div class="col-md-9">
+                <input  name="simg" type="file" accept="image/png, image/jpeg, image/gif, image/jpg" onchange="changepic(this)" required/><br/>
+                <img src="__STATIC__{$simg['urlposition']}{$simg['name']}" width="200">
+            </div>
+        </div>
+        <div class="form-group" data-type="1,2">
+            <label class="col-md-3 control-label">新闻背景图</label>
+            <div class="col-md-9">
+                <input  name="bgimg" type="file" accept="image/png, image/jpeg, image/gif, image/jpg" onchange="changepic(this)" required/><br/>
+                <img src="__STATIC__{$bgimg['urlposition']}{$bgimg['name']}" width="200">
+            </div>
+        </div>
+        {/if}
+        <!--<php echo htmlspecialchars_decode();?>-->
+        <div class="form-group">
+            <label class="col-md-3 control-label">正文</label>
+            <div class="col-md-9" >
+            <div id="editor"><?php echo htmlspecialchars_decode($current['content']);?></div>
+                <textarea class="hidden" data-id='editor' name="content">{$current['content']}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-9">
+                <button type="submit" class="btn btn-sm btn-primary">确定提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+</block>
+{/block}
+{block name="footer-ext"}
+<script>
+    (function($){
+        var editor = new wangEditor("#editor");
+        editor.customConfig.zIndex = 1;
+        //editor.customConfig.uploadImgShowBase64 = true;
+        //上传URL
+        editor.customConfig.uploadImgServer = "admin/upload/index";
+        //隐藏网络图片
+        editor.customConfig.showLinkImg = false;
+        //图片限制大小
+        editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+        //图片数量
+        editor.customConfig.uploadImgMaxLength = 5;
+        //name
+        editor.customConfig.uploadFileName = "file";
+        //http头
+        editor.customConfig.uploadImgHeaders = {
+            "Accept" : "multipart/form-data"
+        };
+        //修改上传事件
+        editor.customConfig.customUploadImg = function (files, insert) {
+            // files 是 input 中选中的文件列表
+            // insert 是获取图片 url 后，插入到编辑器的方法
+            $.editorUpload(files,function(e){
+                switch(e.code){
+                    case 500:
+                        window.flowTip.show(e.info,"#ff5b57",5000);
+                        break;
+                    case 200:
+
+                        window.flowTip.show(e.info,"#8de191",5000);
+                        // 上传代码返回结果之后，将图片插入到编辑器中
+                        insert("upload/" + e.data.url);
+
+                        break;
+                    case 100:
+
+                        window.flowTip.show("开始上传","#8de191");
+                        break;
+                    case 206:
+                        window.flowTip.show("上传进度 :" + parseInt((parseInt(e.data.index)+1)*100 / (parseInt(e.data.total))) +"%","#8de191");//文字内容
+                        break;
+                }
+            });
+
+        }
+
+
+
+
+        //消息提示
+        /*
+         editor.customConfig.customAlert = function (info) {
+         //info 是需要提示的内容
+         }*/
+
+        editor.create();
+        $('#myform').submit(function(){
+            $("[name=content]").val(editor.txt.html());
+        });
+        $('[name=type_id]').change(function(){
+            var type = $(this).val();
+            $('[data-type]').each(function(i,e){
+                var rs = $(e).attr('data-type').split(',');
+                var hidden = true;
+                for(var o in rs){
+                    if(rs[o] == type){
+                        hidden = false;
+                        break;
+                    }
+                }
+                if(hidden){
+                    $(this).hide();
+                }else{
+                    $(this).show();
+                }
+            });
+            if($(this).find("option:selected").attr('data-link') == 1){
+                $('#link').show();
+            }else{
+                $('#link').hide();
+            }
+        }).change();
+    })(jQuery);
+    function changepic(e) {
+        var reads= new FileReader();
+        var  f=e.files[0];
+        reads.readAsDataURL(f);
+        var c = e.nextElementSibling.nextElementSibling;
+        reads.onload=function (e) {
+            c.setAttribute("src",this.result);
+        };
+    }
+</script>
+{/block}

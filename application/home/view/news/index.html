@@ -1,0 +1,87 @@
+{extend name="public/common" /}
+{block name="banner"}
+<!--banner-->
+<div class="top-banner">
+    <img src="../../{$list}" alt="">
+   <ul class="info-title">
+       <li>Information Center</li>
+       <li>资讯中心</li>
+   </ul>
+</div>
+<!--banner-->
+{/block}}
+{block name="body"}
+
+<!--中间新闻板块-->
+<div class="window">
+    <div class="row-news">
+        <div id="cdiv">
+
+        </div>
+
+        <div>
+            <span>新闻详情</span>
+            <div><!--灰色空白--></div>
+            {volist name="cnewsD" id="vo"}
+            <p><a href="javascript:void(0);" onclick="window.open('{:url(\'detail/index\')}?newsid={$vo[\'Id\']}')" >{$vo['title']}</a></p>
+            {/volist}
+        </div>
+    </div>
+    <div class="row-news">
+        <div id="idiv">
+
+          </div>
+        <div>
+            <span>资讯详情</span>
+            <div><!--灰色空白--></div>
+            {volist name="inewsD" id="vo"}
+            <p><a href="javascript:void(0);" onclick="window.open('{:url(\'detail/index\')}?newsid={$vo[\'Id\']}')" >{$vo['title']}</a></p>
+            {/volist}
+        </div>
+    </div>
+</div>
+<!--中间新闻板块-->
+
+</body>
+<script type="text/javascript">
+    function flex(pageNum) {
+        $.get(
+          'show/news',
+          {pageNumC:pageNum},
+          function (data) {
+              $("#cdiv").html(data);
+          }
+        );
+    }
+    function iflex(pageNum){
+        $.get(
+            'ishow/news',
+            {pageNumI:pageNum},
+            function (data) {
+                $("#idiv").html(data);
+            }
+        );
+    }
+</script>
+<script>
+    function  tonews(data) {
+        window.open(data.alt);
+    }
+    //异步刷新技术
+    //****************************企业新闻部分************************
+    $(document).ready(function () {
+        $.get(
+            'show/news',
+            function (data) {
+                $("#cdiv").html(data);
+            }
+        );
+        $.get(
+            'ishow/news',
+            function (data) {
+                $("#idiv").html(data);
+            }
+        );
+    });
+</script>
+{/block}
