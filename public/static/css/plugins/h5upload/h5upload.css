@@ -1,0 +1,43 @@
+
+.h5upload{
+	display:inline-block;
+	position:relative;
+	overflow:hidden;
+}
+
+.h5file{
+	
+}
+
+.img-upload-group{
+	overflow: hidden;
+    display: inline-block;
+    margin-right: 10px;
+	width:auto!important;
+}
+
+.img-upload-group .upload-btn-group{
+	display:block;
+}
+
+.img-upload-group .upload_img_box{
+
+}
+
+.img-upload-group .upload-btn-group {
+
+}
+
+.img-upload-group .upload-btn-group .h5upload-del{
+	float:right;
+}
+
+.upload-btn-group .h5upload .h5file{
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:0;
+	height:60px!important;
+	width:60px!important;
+	display:block;
+}

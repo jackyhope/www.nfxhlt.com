@@ -1,0 +1,25 @@
+﻿.topheader .left h1.logo{
+	margin:0px;
+}
+
+.pagination{
+	float:right;
+}
+.iconmenu .fa{
+	margin:5px 10px;
+}
+
+.iconmenu .fa-angle-down{
+	float:right;
+	
+}
+
+.userinfo img{
+	width:25px;
+	height:25px;
+}
+
+.userinfodrop img{
+	width:86px;
+	width:86px;
+}

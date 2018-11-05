@@ -1,0 +1,430 @@
+.fa{
+    display: flex;
+    height: 100%;
+    font-family: 'Arial Normal', 'Arial';
+}
+.fa-ch{
+    align-self: center;
+    width: 56.25rem;
+    height: 31.25rem;
+    background-image: url('../images/fast/u2.png');
+    margin: 0 auto;
+    background-size: 62.5rem 31.25rem;
+    border-top: 3px solid rgb(179,179,179);
+    border-right: 2px solid rgb(179,179,179);
+    position: relative;
+    left: 2rem;
+}
+.fa-ch > div:nth-child(1){
+    top: 0rem
+}
+.fa-ch > div:nth-child(2){
+    top: 6.3rem
+}
+.fa-ch > div:nth-child(3){
+    top: 12.65rem
+}
+.fa-ch > div:nth-child(4){
+    top: 19rem
+}
+.fa-ch > div:nth-child(5){
+    top: 25.25rem
+}
+.ch-btn{
+    width: 15.625rem;
+    height: 5.6774rem;
+    border: 2px solid #bb565f;
+    border-radius: 7.8125rem;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: -6.25rem;
+    display: flex;
+    cursor: pointer;
+}
+.overflowbtn{
+    width: 15.625rem;
+    height: 5.6774rem;
+    border: 2px solid #bb565f;
+    border-radius: 7.8125rem;
+    background-color: #bb565f;
+    position: absolute;
+    left: -6.25rem;
+    display: flex;
+    cursor: pointer;
+    z-index: 555;
+    top: 0;
+}
+.zy-title-add{
+    text-indent: -1rem;
+}
+.ch-btn > span{
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #333333;
+    position: relative;
+    align-self: center;
+    left: 3rem;
+    z-index: 666;
+    display: block;
+}
+.icon:after{
+    display: block;
+    position: absolute;
+    width: 3.6458rem;
+    height: 3.3854rem;
+    content: '';
+    top: -1rem;
+    left: 8rem;
+    z-index: 666;
+}
+.add-1-r:after{
+    background-image: url('../images/fast/th-r.png');
+    background-size: 3.3334rem 2.5521rem;
+    width: 3.3334rem;
+    height: 2.5521rem;
+    left: 8.4rem;
+    top: -0.4rem
+}
+.add-1-w:after{
+    background-image: url("../images/fast/th-w.png")!important;
+}
+.add-2-r:after{
+    background-image: url("../images/fast/ct-r.png");
+    background-size: 3.1771rem 3.1771rem;
+    width: 3.1771rem;
+    height: 3.1771rem;
+    left: 8.5rem;
+    top: -0.6rem;
+}
+.add-2-w:after{
+    background-image: url("../images/fast/ct-w.png")!important;
+}
+.add-3-r:after{
+    background-image: url("../images/fast/dp-r.png");
+    background-size: 3.1771rem 3.49rem;
+    width: 3.1771rem;
+    height: 3.49rem;
+    left: 8.5rem;
+}
+.add-3-w:after{
+    background-image: url("../images/fast/dp-w.png")!important;
+}
+.add-4-r:after{
+    background-image: url("../images/fast/op-r.png");
+    background-size: 3.28125rem 3.28125rem;
+    width: 3.28125rem;
+    height: 3.28125rem;
+    left: 8.6rem;
+}
+.add-4-w:after{
+    background-image: url("../images/fast/op-w.png")!important;
+}
+.add-5-r:after{
+    background-image: url("../images/fast/yu-r.png");
+    background-size: 3.6458rem 3.3854rem;
+}
+.add-5-w:after{
+    background-image: url("../images/fast/yu-w.png")!important;
+}
+.zy{
+    width: 19rem;
+    height: 31.25rem;
+    right: 0.1rem;
+    position: absolute;
+}
+.zy-title{
+    font-size: 2.6042rem;
+    color: #ffffff;
+    position: absolute;
+    display: block;
+    font-weight: 700;
+    right: 2.5rem;
+    top: 2rem
+}
+.zy-ftitle{
+    font-size: 0.98958rem;
+    color: #FFFFFF;
+    position: absolute;
+    display: block;
+    right: 2.5rem;
+    top: 6.5rem;
+    letter-spacing: 2px;
+}
+.zy-title:before{
+    content: '';
+    display: block;
+    width: 7.92rem;
+    height: 5.78rem;
+    background-size: 7.92rem 5.78rem;
+    position: absolute;
+    left: -9rem;
+}
+.rightnow{
+    width: 10.9375rem;
+    height: 3.125rem;
+    background-color: inherit;
+    border: 2px solid #FFFFFF;
+    border-radius: 3.125rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 2.5rem;
+    font-size: 1.042rem;
+    color: #ffffff;
+}
+.icon-lt:before{
+    background-image: url('../images/fast/th-w.png');
+}
+.icon-jl:before{
+    background-image: url('../images/fast/ct-w.png');
+    width: 7.8646rem;
+    height: 7.8646rem;
+    background-size: 7.8646rem 7.8646rem;
+    left: -10rem;
+    top: -1rem;
+}
+.icon-ms:before{
+    background-image: url('../images/fast/dp-w.png');
+    width: 6.9271rem;
+    height: 7.8646rem;
+    background-size: 6.9271rem 7.8646rem;
+    left: -10rem;
+    top: -1rem;
+}
+.icon-rz:before{
+    background-image: url('../images/fast/op-w.png');
+    width: 7.8646rem;
+    height: 7.8646rem;
+    background-size: 7.8646rem 7.8646rem;
+    left: -10rem;
+    top: -1rem;
+}
+.icon-dyz:before{
+    background-image: url('../images/fast/yu-w.png');
+    width: 7.8646rem;
+    height: 7.2917rem;
+    background-size: 7.8646rem 7.2917rem;
+    left: -10.5rem;
+    top: -0.5rem;
+}
+.zy-content{
+    display: flex;
+    position: absolute;
+    min-width: 19rem;
+    height: 12rem;
+    bottom: 8rem;
+    right: 2.5rem;
+}
+.zy-content > div{
+    width: 100%;
+    height: auto;
+    align-self: flex-end;
+}
+.zy-content > div > span{
+    display: block;
+    color: #ffffff;
+    white-space: nowrap;
+}
+.serviceys{
+    width: 100rem;
+    height: 37rem;
+    position: relative;
+}
+.h1-title{
+    display: block;
+    width: 9rem;
+    height: 2.8rem;
+    font-size: 2rem;
+    color:#333333;
+    font-weight: normal;
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 2px solid #bb565f;
+}
+.ys-title{
+    position: relative;
+    top: 4rem
+}
+.ys-content{
+    width: 52rem;
+    height: 20rem;
+    margin: 4rem auto 0 auto;
+    display: flex;
+    align-items: flex-start;
+}
+.ys-content > div{
+    flex: 1;
+    position: relative;
+    align-self: stretch;
+}
+.ys-img-1 > img{
+    width: 6rem;
+    height: 5rem;
+    display: block;
+    margin: 5rem auto 0 auto;
+}
+.ys-img-2 > img{
+    width: 6.25rem;
+    height: 5.625rem;
+    display: block;
+    margin: 5rem auto 0 auto;
+}
+.ys-img-3 > img{
+    width: 6.25rem;
+    height: 4.84375rem;
+    display: block;
+    margin: 5rem auto 0 auto;
+}
+.text-div{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.text-div > span{
+    color: #333333;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.product{
+    width: 100rem;
+    height: 38.021rem;
+}
+.lc-8{
+    width: 100rem;
+    height: 40rem;
+    padding-top: 4rem;
+}
+.lc-detail{
+    position: relative;
+    top: 0.8rem;
+}
+.lc-detail > p{
+    display: block;
+    width: 100rem;
+    line-height: 2rem;
+    font-size: 1.094rem;
+    color: #333333;
+    text-align: center;
+}
+.lc-detail >a{
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: block;
+    width: 100rem;
+    line-height: 2rem;
+    color: #333333;
+    text-align: center;
+}
+.all-lc{
+    width: 62.5rem;
+    height: 6.71875rem;
+    margin:4.6875rem auto 0 auto;
+}
+.all-lc > ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.all-lc > ul > li{
+    flex: 1;
+    position: relative;
+    display: flex;
+}
+.lc-img-d{
+    width: 3.2292rem;
+    height: 3.2292rem;
+    display: flex;
+    align-self: center;
+}
+.lc-img-d > img{
+    align-self: center;
+    margin: 0 auto;
+}
+.lc-dd{
+    text-align: center;
+    width: 13rem;
+    display: flex;
+    position: relative;
+    right: 0.9rem;
+}
+.lc-dd > div{
+    align-self: center;
+    margin: 0 auto;
+}
+.lc-title{
+    display: block;
+    width: auto;
+    position: relative;
+    font-size: 0.9375rem;
+    font-weight: normal;
+}
+.banneradd{
+    width: 62.5rem;
+    height: 31.25rem;
+    padding:0 18.75rem;
+    position: relative;
+}
+.banneradd >img{
+    width: 50.4688rem;
+    height: 31.25rem;
+    position: relative;
+    top: 2rem;
+}
+.bannerbottom{
+    width: 32.4rem;
+    height:20.8333rem;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 10px rgba(153,153,153,0.8);
+    position: absolute;
+    bottom: -1.8rem;
+    right: 18.75rem;
+    border-radius: 20px;
+}
+.company-name{
+    font-weight: normal;
+    position: relative;
+    top: 1rem;
+    text-indent: 1rem;
+}
+.company-name:before{
+    content: '';
+    width: 2rem;
+    height: 3.5rem;
+    background-color: #bb565f;
+    display: inline-block;
+    position: relative;
+    top:1rem;
+    right: 1rem;
+}
+.company-detail{
+    position: relative;
+    display: block;
+    top: 2rem;
+    width: 94%;
+    padding:0 3%;
+    font-size: 1.3rem;
+    text-indent: 2rem;
+    line-height: 2.3rem;
+}
+.red-zp{
+    border-color: #bb565f;
+    color: #333333;
+    bottom: 1rem;
+}
+.jt-r{
+    width: 1.8229rem;
+    height: 3.125rem;
+    align-self: center;
+    position: relative;
+    right: 1.5rem;
+}
+.jt{
+    display: flex;
+}
+.jt-down{
+    position: absolute;
+    right: 20.25rem;
+    bottom: 8rem;
+    height: 1.8229rem;
+    width: 3.125rem;
+}
