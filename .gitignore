@@ -1,7 +1,0 @@
-.idea
-composer.lock
-*.log
-.DS_Store
-/nbproject/private/
-/nbproject/project.properties
-/nbproject/project.xml
