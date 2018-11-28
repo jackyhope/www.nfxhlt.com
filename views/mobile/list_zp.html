@@ -1,0 +1,77 @@
+{template header}
+        <div class="bottom">
+        
+			{template column}
+
+            <!--m-focus-->
+			     
+            <div class="nfb8">
+            	<div class="nfb7-a"><span>{$cats[$catid]['catname']}</span><font>{$cats[$catid]['catdir']}</font></div>
+                <div class="nfb8-b">
+                	<div class="nfb8-b1">招聘电话：<!--招聘电话-->{block(22)}<!--招聘电话--></div>
+                    <div class="nfb8-b2">
+                    	<img src="{block(21)}" />
+                    </div>
+                    <div class="nfb8-b3">
+                    	<ul>
+							{list catid=$catid order=liatorder_desc,updatetime_desc more=1 page=$page}
+                        	<li class="box" >
+                            	<span class="nfb8-b3c" onclick="showbox({$t['id']})">+</span>
+                            	<div class="nfb8-b3a">
+                                	<p><span>{$t['title']}</span></p>
+                                    <p><font>（{$t['renshu']}）</font></p>
+                                </div>
+                                <div class="nfb8-b3b" id="show{$t['id']}">
+                                	<p><span>岗位职责：</span></p>
+                                    <div>
+                                    	{html_entity_decode($t['content'])}
+									</div>
+                                </div>
+                            </li>
+							{/list}
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="nfb7-d">
+                	<div>
+                        {$pagelist}
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+<style>
+.nfb8-b3 ul li .hauto{ height:auto;}
+.nfb8-b3 ul li .hauto div{height:auto;}
+ </style>
+<script type="text/javascript">
+// 收缩展开效果
+function showbox(id){
+   var claval=$("#show"+id).attr('class');
+   if(claval=="nfb8-b3b"){
+		$(".box .nfb8-b3b").removeClass('hauto');
+		$("#show"+id).addClass('hauto');
+   }else{
+		$("#show"+id).removeClass('hauto');;
+   };
+  
+};
+
+
+</script>
+
+
+
+
+
+
+{template footer}

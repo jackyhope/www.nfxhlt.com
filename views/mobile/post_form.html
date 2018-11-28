@@ -1,0 +1,64 @@
+{template header}
+        <div class="bottom">
+        
+			{template column}
+
+            <!--m-focus-->
+			     
+            <div class="nfb8">
+            	<div class="nfb7-a"><span>{$cats[$catid]['catname']}</span><font>{$cats[$catid]['catdir']}</font></div>
+                <div class="nfb8-c">
+                	<div class="nfb8-c1">
+                    	<p><span>投诉热线：</span><font><!--投诉热线-->{block(17)}<!--投诉热线--></font></p>
+                        <p><span>投诉邮箱：</span><font><!--投诉邮箱-->{block(18)}<!--投诉邮箱--></font></p>
+                    </div>
+                    <div class="nfb8-c2">
+                    	<p><span>留言建议</span></p>
+                        <div>{clearhtml($cats[$catid]['content'])}</div>
+                    </div>
+                    <div class="nfb8-c3">
+						<form action="{url('form/post', array('modelid'=>10))}" method="post">
+                    	<ul>
+                            <li>
+                                <span><font>*</font>请选择类型：</span>
+                                <select name="data[leixing]">
+                                	<option>请选择</option>
+                                    <option value="投诉建议">投诉建议</option>
+									<option value="企业招聘">企业招聘</option>
+                                </select>
+                            </li>
+                            <li><span>请输入姓名：</span><input name="data[xingming]"  type="text" value="" /></li>
+                            <li><span><font>*</font>请输入联系电话：</span><input name="data[dianhua]" type="text" value="" /></li>
+                            <li><span>请输入公司名称：</span><input name="data[gongsi]" type="text" value="" /></li>
+                            <li><span>请输入邮箱：</span><input name="data[youxiang]" type="text" value="" /></li>
+                            <li><span><font>*</font>请输入验证码：</span><input class="nfb8-c3a" type="text" value="" name="code" /><div><img src="{url('api/captcha', array('width'=>120,'height'=>60))}" id="code" onclick="document.getElementById('code').src='{url("api/captcha", array("width"=>120,"height"=>60))}&r='+Math.random();"></div></li>
+                            <li><span>请输入内容：</span><textarea name="data[neirong]"></textarea></li>
+                            <li></li>
+                        </ul>
+                        <div class="nfb8-c3tj"><input type="submit" name="submit" value="提 交"  /></div>
+						</form>
+                    </div>
+                </div>
+                
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template footer}
+

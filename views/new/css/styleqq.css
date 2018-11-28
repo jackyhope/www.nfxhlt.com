@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{padding:0px;margin:0px;}
+#kfchat{
+	position:fixed;
+	right:2px;
+	top:80%;
+	margin-top:-170px;
+	width:62px;
+	height:250px;
+	box-shadow: 0 0 10px #999;
+	z-index:9999;
+}
+#kfchat ul.list{width:62px;height:250px;list-style:none;margin:0px;padding:0px;}
+#kfchat ul.list li{position:relative;display:block;float:left;}
+#kfchat ul.list li a.kfa{height:50px;width:62px;display:block;font-size:0px;background:url(../images/service_online.png);background-repeat:no-repeat;}
+
+#kfchat ul.list li.gotop a.kfa{background-position:0 0;}
+#kfchat ul.list li.gotop a.kfa:hover,#kfchat ul.list li.gotop a.hover{background-position:-62px 0;}
+#kfchat ul.list li.qq a.kfa{background-position:0 -50px;}
+#kfchat ul.list li.qq a.kfa:hover,#kfchat ul.list li.qq a.hover{background-position:-62px -50px;}
+#kfchat ul.list li.ww a.kfa{background-position:0 -100px;}
+#kfchat ul.list li.ww a.kfa:hover,#kfchat ul.list li.ww a.hover{background-position:-62px -100px;}
+#kfchat ul.list li.kli_contact a.kfa{background-position:0 -150px;}
+#kfchat ul.list li.kli_contact a.kfa:hover,#kfchat ul.list li.kli_contact a.hover{background-position:-62px -150px;}
+#kfchat ul.list li.qr a.kfa{background-position:0 -200px;}
+#kfchat ul.list li.qr a.kfa:hover,#kfchat ul.list li.qr a.hover{background-position:-62px -200px;}
+#kfchat ul.list li.gobottom a.kfa{background-position:0 -250px;}
+#kfchat ul.list li.gobottom a.kfa:hover,#kfchat ul.list li.gobottom a.hover{background-position:-62px -250px;}
+#kfchat ul.list li div.kfcontent{background:#F0F0F0;width:140px;min-height:30px; position:absolute;right:76px;top:50%;border:1px solid #c2c2c2;padding:10px;display:none;box-shadow: 0 0 10px #999;}
+#kfchat ul.list li div.kfcontent span.rotate{position:absolute;top:50%;margin-top:-50px;right:-20px;display:block;width:20px;height:100px;background:url(../images/rotate.png) left center no-repeat;}
+#kfchat ul.list li div.kfcontent span.rotate2{position:absolute;top:50%;margin-top:-50px;right:-20px;display:block;width:20px;height:100px;background:url(../images/rotate2.png) left center no-repeat;}
+
+#kfchat ul.list li.qq div.kfcontent ul{width:120px;margin:10px;padding:0px;list-style:none;background:#F0F0F0}
+#kfchat ul.list li.qq div.kfcontent ul li{padding:2px 0;line-height:34px;width:100px;display:block;clear:both;}
+#kfchat ul.list li.qq div.kfcontent ul li span{margin-left:10px;float:left;text-align:right;font:14px/30px "\5FAE\8F6F\96C5\9ED1","\5B8B\4F53";color:#000;}
+#kfchat ul.list li.qq div.kfcontent ul li a{display: block; height: 34px; float:left; width: 34px; background: url(../images/QQStatus.jpg);background-repeat:no-repeat;}
+#kfchat ul.list li.qq div.kfcontent ul li a.qq1{background-position: 0 0;}
+#kfchat ul.list li.qq div.kfcontent ul li a.qq2{background-position: -34px 0;}
+#kfchat ul.list li.qq div.kfcontent ul li a.qq3{background-position: -69px 0;}
+#kfchat ul.list li.qq div.kfcontent ul li a.qq4{background-position: -103px 0;}
+
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq1{background-position: 0 -34px;}
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq2{background-position: -34px -34px;}
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq3{background-position: -69px -34px;}
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq4{background-position: -103px -34px;}
+
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq1:hover{background-position: 0 bottom;}
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq2:hover{background-position: -34px bottom;}
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq3:hover{background-position: -69px bottom;}
+#kfchat ul.list li.qq div.kfcontent ul li.online a.qq4:hover{background-position: -103px bottom;}
+
+#kfchat ul.list li div.kfcontent p{width:140px;text-align:center;font:13px/1.5 "\5FAE\8F6F\96C5\9ED1","\5B8B\4F53";color:#666;margin:15px auto;}
+#kfchat ul.list li.ww div.kfcontent a{font:14px/1.5 "\5FAE\8F6F\96C5\9ED1","\5B8B\4F53";color:#000;line-height:50px;width:60px;margin:20px 5px;text-decoration:none;padding-left:20px;}
+#kfchat ul.list li.ww div.kfcontent a:hover{color:#F30;}
+
+#kfchat ul.list li.kli_contact div.kfcontent{width:250px;*padding-top:25px;}
+ul.lianxi{width:250px;margin:10px;padding:0;font:14px/1.5 "\5FAE\8F6F\96C5\9ED1","\5B8B\4F53";}
+ul.lianxi li{height:auto;display:block;padding:3px 0px 3px 32px;margin:2px 0;background:url(../images/telphone.jpg) no-repeat left center; color:#000;}
+ul.lianxi li strong{ color:#003;font-weight:normal;}
+ul.lianxi li.fax{background:url(../images/fax.jpg) no-repeat left center;}
+ul.lianxi li.address{background:url(../images/add.jpg) no-repeat left center;}
+ul.lianxi li.email{background:url(../images/email.jpg) no-repeat left center;}
+
+#kfchat ul.list li.qr div.kfcontent{width:135px;}

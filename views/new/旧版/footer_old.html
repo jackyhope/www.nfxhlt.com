@@ -1,0 +1,131 @@
+
+<div class="bot1">
+	<div class="bot1z">
+		<div class="bot1z-a">
+        	<div class="bot1z-a1">
+            	<div class="bot1z-a1a"><a href="{SITE_URL}" title=""><img src="{SITE_URL}{block(3)}" /></a></div>
+                <div class="bot1z-a1b"><!--公司名-->{block(4)}<!--公司名--></div>
+                <div class="bot1z-a1c">
+                	<div class="bot1z-a1c1">
+                    	<div class="bot1z-a1c1a"><div><img src="{SITE_THEME}images/dxw1.png" onmouseover="this.src='{SITE_THEME}images/dxwa1.png';" onmouseout="this.src='{SITE_THEME}images/dxw1.png';"/></div><p><span>微信</span></p></div>
+                        <div class="bot1z-a1c1b">
+                        	<p><img src="{SITE_THEME}images/bsj1.png" /></p>
+                            <div><img src="{SITE_URL}{block(5)}" /></div>
+                        </div>
+                    </div>
+                   <div class="bot1z-a1c1">
+                    	<div class="bot1z-a1c1a"><div><img src="{SITE_THEME}images/dxw2.png" onmouseover="this.src='{SITE_THEME}images/dxwa2.png';" onmouseout="this.src='{SITE_THEME}images/dxw2.png';"/></div><p><span>微博</span></p></div>
+                        <div class="bot1z-a1c1b">
+                        	<p><img src="{SITE_THEME}images/bsj1.png" /></p>
+                            <div><img src="{SITE_URL}{block(6)}" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bot1z-a2">
+            	<div class="bot1z-a2a">联系我们</div>
+                <div class="bot1z-a2b">
+                	<ul>
+                    	<li>全国服务热线：<!--服务热线-->{block(7)}<!--服务热线--></li>
+                        <li>个人求职：<!--个人求职-->{block(8)}<!--个人求职--></li>
+                        <li>加入我们：<!--加入我们-->{block(9)}<!--加入我们--></li>
+                        <li>总部地址：<!--总部地址-->{block(10)}<!--总部地址--></li>
+                        <li>全国事业部：<!--全国事业部-->{block(11)}<!--全国事业部--></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bot1z-a3">
+            	<div class="bot1z-a2a">快速导航</div>
+                <div class="bot1z-a3b">
+                	<ul>
+                    	<li><a href="{SITE_URL}" title="">网站首页</a></li>
+                        {loop $cats $t}
+                        {if $t['parentid']==0 && $t['ismenu']}
+                        <li><a href="{$t['url']}" title="{$t['catname']}">{$t['catname']}</a></li>
+                        {/if}
+                        {/loop}
+                        <li><a href="{$cats[42]['url']}" title="网站地图">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bot1z-b">
+        	<span>友情链接/link：</span>
+            <div>
+                {list action=position id=1}
+                <a href="{$t['url']}" title="" target="_blank">{$t['title']}</a>
+                {/list}
+                <a href="{block(15)}" title="" target="_blank">申请友情链接+</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="bot2">
+	<div class="bot2z">
+    	<span><!--公司名-->{block(4)}<!--公司名--></span><span><!--版权所有-->{block(12)}<!--版权所有--></span><span><!--备案号-->{block(13)}<!--备案号--></span><span><!--人才许可证-->{block(14)}<!--人才许可证--></span>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="{SITE_THEME}css/styleqq.css" media="screen">
+<script type="text/javascript" src="{SITE_THEME}js/kf.js"></script>
+<div id="kfchat">
+	<ul class="list">
+		<li class="gotop"><a href="javascript:;" class="kfa" title="返回顶部">top</a></li>
+		<li class="qq">
+			<a href="javascript:;" class="kfa" title="QQ客服">qq</a>
+			<div class="kfcontent" style="margin-top: -77px; display: none;">
+				<ul id="QQkf">
+				{php $i=1;}
+					{list action=position id=4}
+					<li class="online"><a href="{$t['description']}" class="qq{$i}" target="_blank"></a><span>{$t['title']}</span></li>
+					{php $i++;}
+					{/list}
+				</ul>
+				<div style="clear:both"></div>
+				<span class="rotate"></span>
+			</div>
+		</li>
+		<li class="kli_contact"><a href="javascript:;" class="kfa" title="联系我们">contact</a>
+			<div class="kfcontent" style="margin-top: -107px; display: none;">
+				<ul class="lianxi">
+					<li title="电话"><strong>咨询热线：</strong><!--咨询热线-->{block(2)}<!--咨询热线--></li>
+					<li title="手机"><strong>投诉热线：</strong><!--投诉热线-->{block(17)}<!--投诉热线--></li>
+					<li title="邮箱" class="email"><strong>投诉邮箱：</strong><!--投诉邮箱-->{block(18)}<!--投诉邮箱--></li>
+				</ul>
+				<div style="clear:both"></div>
+				<span class="rotate"></span>
+			</div>
+		</li>
+		<li class="qr"><a href="javascript:;" class="kfa" title="二维码">qr</a>
+			<div class="kfcontent" style="width: 155px; background: rgb(255, 255, 255); margin-top: -89px; display: none;">
+				<img src="{block(5)}" width="155" height="156">
+				<div class="clear"></div>
+				<span class="rotate2"></span>
+			</div>
+		</li>
+		<li class="gobottom"><a href="javascript:;" class="kfa" title="返回底部">bottom</a></li>
+	</ul>
+</div>
+
+
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?79ab35463c1911c1ad2322e50d0efda1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</body>
+</html>

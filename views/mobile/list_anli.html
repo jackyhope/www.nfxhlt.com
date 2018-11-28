@@ -1,0 +1,51 @@
+{template header}
+        <div class="bottom">
+
+
+            <!--m-focus-->
+			{list action=position id=7}
+            <div class="banz"><img src="{$t['thumb']}" /></div>
+            {/list}
+            
+            <div class="nfb9">
+            	<div class="nfb7-a"><span>{$cats[$catid]['catname']}</span><font>{$cats[$catid]['catdir']}</font></div>
+                <div class="nfb9-b">
+                	<ul>
+						{list catid=$catid order=listoredr_desc,updatetime_desc page=$page more=1}
+                    	<li><a href="{$t['url']}" title="{$t['title']}">
+                        	<div class="nfb9-b1">
+                            	<p><span>{$t['title']}</span></p>
+                                <p><span>行业：{$t['xingye']}</span></p>
+                                <p><span>地区：{$t['diqu']}</span></p>
+                            </div>
+                            <div class="nfb9-b2">年薪：{$t['nianxin']}</div>
+                        </a></li>
+						{/list}
+                       
+                    </ul>
+                </div>
+                
+				<div class="nfb7-d">
+                	<div>
+                        {$pagelist}
+                    </div>
+                </div>
+                
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template footer}

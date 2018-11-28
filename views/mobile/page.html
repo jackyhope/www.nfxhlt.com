@@ -1,0 +1,35 @@
+{template header}
+{if $catid==$aa}
+    {loop $cats $t}
+    {if $t['parentid']==$aa && $t['ismenu']}
+        {php $catid=$t['catid'];break;}
+    {/if}
+    {/loop}
+{/if}
+
+        <div class="bottom">
+        
+			{template column}
+
+            <!--m-focus-->
+			     
+            <div class="nfb7">
+            	<div class="nfb7-a"><span>{$cats[$catid]['catname']}</span><font>{$cats[$catid]['catdir']}</font></div>
+                <div class="nfb7-b">
+                	{$cats[$catid]['content']}
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template footer}

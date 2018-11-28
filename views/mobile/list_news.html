@@ -1,0 +1,55 @@
+{template header}
+        <div class="bottom">
+        
+			{template column}
+
+            <!--m-focus-->
+			     
+            <div class="nfb8">
+            	<div class="nfb7-a"><span>{$cats[$catid]['catname']}</span><font>{$cats[$catid]['catdir']}</font></div>
+                <div class="nfb8-d">
+                	<ul>
+						{list catid=$catid order=listorder_desc,updatetime_desc page=$page}
+                    	<li>
+                        	<div class="nfb8-d1"><a href="{$t['url']}" title="{$t['title']}"><img src="{$t['thumb']}" /></a></div>
+                            <div class="nfb8-d2">
+                            	<p><a href="{$t['url']}" title="{$t['title']}">{$t['title']}</a></p>
+                                <p><span>{date('Y-m-d',$t['updatetime'])}</span></p>
+                                <div>{$t['description']}</div>
+                            </div>
+                        </li>
+						{/list}
+                       
+                    </ul>
+                </div>
+                
+				<div class="nfb7-d">
+                	<div>
+                        {$pagelist}
+                    </div>
+                </div>
+                
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template footer}

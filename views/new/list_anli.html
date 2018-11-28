@@ -1,0 +1,52 @@
+{template header}
+
+
+<div class="ban1">
+	<div class="ban1z">
+    	<div class="ban1z-a"><img src="{$cats[$aa]['image']}" /></div>
+    </div>
+</div>
+
+
+
+
+<div class="nfa9">
+	<div class="nfa9z">
+		<span>{$cats[$aa]['catname']}</span><font>{$cats[$aa]['catdir']}</font>
+    </div>
+</div>
+
+
+<div class="nfb1">
+	<div class="nfb1z">
+		<div class="nfb1z-a">
+        	<ul>
+                {list catid=$catid order=listoredr_desc,updatetime_desc page=$page more=1}
+            	<li><a href="{$t['url']}" title="{$t['title']}">
+                	<div>
+                    	<p>{$t['title']}</p>
+                        <!--<p><font>实时捷报</font></p>-->
+                    </div>
+					<p class="other1">行业：{$t['xingye']}</p>
+					<p class="other">地区：{$t['diqu']}</p>
+                    <span>年薪：{$t['nianxin']}</span>
+                </a></li>
+                {/list}
+               
+            </ul>
+        </div>
+        
+        <div class="nfb1z-b">
+            <div>
+                {$pagelist}
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+{template footer}

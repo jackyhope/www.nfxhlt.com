@@ -1,0 +1,36 @@
+<div class="nfa8z-b">
+        	<div class="nfa8z-b1">
+            	<div class="nfa8z-b1a">推荐热文</div>
+                <div class="nfa8z-b1b">
+                    {list action=position id=3 num=1}
+                	<div><a href="{$t['url']}" title="{$t['title']}"><img src="{$t['thumb']}" /><p><span>{$t['title']}</span></p></a></div>
+                    {/list}
+                    <ul>
+						{php $i=1;}
+                        {list action=position id=3}
+						{if $i>1}
+                    	<li><a href="{$t['url']}" title="{$t['title']}">{$t['title']}</a><span>{date('Y-m-d',$t['updatetime'])}</span></li>
+						{/if}
+						{php $i++;}
+                        {/list}
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="nfa8z-b1">
+            	<div class="nfa8z-b1a">最新资讯</div>
+                <div class="nfa8z-b1b">
+                    {list catid=1 order=updatetime_desc num=1}
+                	<div><a href="{$t['url']}" title="{$t['title']}"><img src="{$t['thumb']}" /><p><span>{$t['title']}</span></p></a></div>
+                    {/list}
+                    <ul>
+                        {list catid=1 order=updatetime_desc num=1,5}
+                    	<li><a href="{$t['url']}" title="{$t['title']}">{$t['title']}</a><span>{date('Y-m-d',$t['updatetime'])}</span></li>
+                        {/list}
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            
+        </div>

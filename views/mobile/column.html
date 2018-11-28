@@ -1,0 +1,12 @@
+<div class="djxl">
+	<div class="djxl-a"><span>{$cats[$aa]['catname']}</span></div>
+	<div class="djxl-b">
+		<ul>
+			{loop $cats $t}
+			{if $t['parentid']==$aa && $t['ismenu']}
+			<li {if $t['catid']==$catid}class="om"{/if}><a href="{$t['url']}" title="{$t['catname']}">{$t['catname']}</a></li>
+			{/if}
+			{/loop}
+		</ul>
+	</div>
+</div>

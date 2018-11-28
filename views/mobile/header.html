@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+<title>{$meta_title}</title>
+<meta name="keywords" content="{$meta_keywords}" />
+<meta name="description" content="{$meta_description}" />
+<link rel="stylesheet" href="{SITE_THEME}css/global.css" />
+<script type="text/javascript" src="{SITE_THEME}js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="{SITE_THEME}js/jquery_002.js"></script>
+<script type="text/javascript" src="{SITE_THEME}js/global.js"></script>
+<script type="text/javascript" src="{SITE_THEME}js/idangerous.js"></script>
+
+<script type="text/javascript" src="{SITE_THEME}js/touchslider.js"></script>
+<script src="{SITE_THEME}js/lory.min.js"></script>
+
+
+{if $cats[$catid]['parentid']==0}{php $aa=$catid;}
+{else}
+    {php $bb=$cats[$catid]['parentid'];}
+    {if $cats[$bb]['parentid']==0}{php $aa=$bb;}
+    {else}
+        {php $cc=$cats[$bb]['parentid'];}
+        {if $cats[$cc]['parentid']==0}{php $aa=$cc;}
+        {else}
+            {php $aa=$cats[$cc]['parentid'];}
+        {/if}
+    {/if}
+{/if}
+
+
+</head>
+
+<body>
+<script type="text/javascript">
+function change_pic(){
+	var imgObj = document.getElementById("caocao_pic");
+		if(imgObj.getAttribute("src",2)=="{SITE_THEME}images/xly.png"){
+			imgObj.src="{SITE_THEME}images/xlya.png";
+			$("#meun").css("display","block");
+			$(".top-leftb").css("display","none");
+			// $('body').addClass('add');
+		}else{
+			imgObj.src="{SITE_THEME}images/xly.png";
+			$("#meun").css("display","none");
+			$(".top-leftb").css("display","block");
+			// $('body').removeClass('add');
+	}
+}
+
+</script>                                                                                                                                                                                   
+<div id="header">
+	<div class="cent-top" >
+    	<div id="Jnav" class="clear">
+        	
+        	<div class="top-left">
+            	<a href="{SITE_URL}"><img src="{block(20)}" alt="" /></a>
+            </div>
+            <div class="top-lefta">24小时极速猎头</div>
+            <div class="top-leftb"><a href="tel:{block(2)}" title=""><img src="{SITE_THEME}images/dha.png" /></a></div>
+            <div class="top-right">
+            	<div class="shouy"><img src="{SITE_THEME}images/xly.png" class="wujiang_pic_size" id="caocao_pic" onClick="change_pic()" alt="" /></div>
+            </div>
+		</div>
+
+<style type="text/css">
+
+.fixed-nav{position: fixed;background:#fff; z-index:99;width:100%; top:0px; -webkit-transition: top .5s; -moz-transition: top .5s; -o-transition: top .5s; transition: top .5s;transition: all 0.3s ease 0s; box-shadow: 0px 0px 20px #8c8c8c;}
+.fixed-nav-appear{top:0;}
+</style>
+<script type="text/javascript">
+var $nav = $('#Jnav'), navTop = $nav.offset().top, navH = $nav.outerHeight(),winTop_1=0,winWidth=$(window).width(), holder=jQuery('<div>');
+$(window).on('scroll',function(){
+ var winTop_2 = $(window).scrollTop();
+ //开始浮动，不过不显示
+ if(winTop_2>=30){
+ holder.show().insertBefore($nav);
+ $nav.addClass('fixed-nav');
+ }else{
+ holder.hide();
+ $nav.removeClass('fixed-nav');
+ }
+ //判断鼠标向上滚动，显示出来
+ if(winTop_2>=0){
+ $nav.removeClass('fixed-nav-appear');
+ }else if(winTop_2<winTop_1){
+ $nav.addClass('fixed-nav-appear');
+ }
+ winTop_1 = $(window).scrollTop();
+})
+</script>

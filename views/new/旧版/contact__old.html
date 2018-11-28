@@ -1,0 +1,180 @@
+{template header}
+
+<div class="ban1">
+	<div class="ban1z">
+    	<div class="ban1z-a"><img src="{$cats[$aa]['image']}" /></div>
+    </div>
+</div>
+
+
+
+
+
+<div class="nfa6">
+	<div class="nfa6z">
+		<div class="nfa6z-a">
+        	<div class="nfa6z-a1">
+            	<p><span>{$cats[$aa]['catname']}</span></p>
+                <p><font>{$cats[$aa]['catdir']}</font></p>
+            </div>
+            <div class="nfa6z-a2">
+            	<ul>
+                	{loop $cats $t}
+                    {if $t['parentid']==$aa && $t['ismenu']}
+                    <li {if $t['catid']==$catid}class="pon"{/if}><a href="{$t['url']}" title="{$t['catname']}" >{$t['catname']}</a></li>
+                    {/if}
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+        <div class="nfa6z-b">
+        	<div class="nfa6z-b1"><span>{$cats[$catid]['catname']}</span><font>{$cats[$catid]['catdir']}</font></div>
+            <div class="nfa6z-b6">
+            	<p><span>重庆总部：</span></p>
+                <p><font><i><img src="{SITE_THEME}images/lw1.png" /></i>全国服务电话：<!--服务热线-->{block(7)}<!--服务热线--></font></p>
+                <p><font><i><img src="{SITE_THEME}images/lw2.png" /></i><!--总部地址-->{block(10)}<!--总部地址--></font></p>
+                <div>{$cats[$catid]['content']}</div>
+            </div>
+        
+		
+			<script type="text/javascript" src="{SITE_THEME}js/city.js"></script>
+			<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9LG1uBVH73rol2OWKOZ8oTx0ZmLd6yuY"></script>
+			
+			<div class="nfa6z-bdt">
+
+	        	<div class="mj8z-c1" id="allmap"></div>
+				<script type="text/javascript">
+					// 百度地图API功能
+					var map = new BMap.Map("allmap");    // 创建Map实例
+					var pointer=new BMap.Point(106.55 , 29.57);
+					map.centerAndZoom(pointer, 4);  // 初始化地图,设置中心点坐标和地图级别
+					
+					var marker = new BMap.Marker(pointer); //将点转化成标注点
+					map.addOverlay(marker);  //将标注点添加到地图上
+					//添加地图类型控件
+					map.addControl(new BMap.MapTypeControl({
+						mapTypes:[
+							BMAP_NORMAL_MAP,
+							BMAP_HYBRID_MAP
+						]}));	  
+					map.setCurrentCity("重庆");          // 设置地图显示的城市 此项是必须设置的
+					map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+					
+					
+					function mapsite(address){
+						var localSearch = new BMap.LocalSearch(map);
+						localSearch.setSearchCompleteCallback(function (searchResult) {
+					　　　　var poi = searchResult.getPoi(0);
+					
+							map.clearOverlays();
+							var pointer=new BMap.Point(poi.point.lng,poi.point.lat);
+							map.centerAndZoom(pointer, 14);  // 初始化地图,设置中心点坐标和地图级别
+							var marker = new BMap.Marker(pointer); //将点转化成标注点
+							map.addOverlay(marker);  //将标注点添加到地图上
+					　　});
+					　　localSearch.search(address);
+					}
+				</script>
+	            <div class="mj8z-c2">
+					<form name="form2">
+	            	<div class="mj8z-c2a">
+	                	<div class="mj8z-c2a1" id="poa1">
+	                    	<select name="selectsf" class="censussf" onclick="selectcityarea('selectsf','selectcz','form2');">
+	                            <option>-- 请选择城市--</option>
+	                        </select>
+	                    </div>
+	                    <div class="mj8z-c2a1" id="poa2">
+	                    	<select name="selectcz" class="citycs" onchange="ajaxstore()">
+	                            <option>-- 请选择城市--</option>
+	                        </select>
+	                    </div>
+	                </div>
+					</form>
+					
+					
+					<script language="javascript">
+                    //地区二级联动
+                    first("selectsf","selectcz","form2",0,0);
+                </script>
+                <script>
+                    function ajaxstore(){
+                        var sf=$('.censussf').val();
+                        var sq=$('.citycs').val();
+                        $.post("{url('content/storesearch')}",{'sf':sf,'sq':sq},function(data){
+                            var arr=JSON.parse(data,true);
+                            var len=arr.length;
+                            var str='';
+                            for(var i=0;i<len;i++){
+                                str+='<li onclick="mapsite('+arr[i]['dizhi']+')"><p><span>'+arr[i]['ex']['title']+'</span></p><div><p><font>地址：'+arr[i]['dizhi']+'</font></p><p><font>电话：'+arr[i]['dianhua']+'</font></p></div></li>';
+                            }
+                            $('#store').html(str);
+                        })
+                    }
+					
+					
+                </script>
+				
+				
+				
+				
+	                <link rel="stylesheet" href="{SITE_THEME}css/jquery.mCustomScrollbar.css">  
+	                <div class="mj8z-c2b">
+	                	<div class="content mCustomScrollbar">
+	                        <ul id="store">
+								{list catid=41 order=listorder_desc,updatetime_desc more=1}
+	                            <li onclick="mapsite('{$t['dizhi']}')">
+	                                <p><span>{$t['title']}</span></p>
+	                                <div>
+	                                    <p><font>地址：{$t['dizhi']}</font></p>
+	                                    <p><font>电话：{$t['dianhua']}</font></p>
+	                                </div>
+	                            </li>
+								{/list}
+	                            
+	                        </ul>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	        	
+	        </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>  
+
+<script src="{SITE_THEME}js/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+<script>
+	(function($){
+		$(window).on("load",function(){
+			
+			$("a[rel='load-content']").click(function(e){
+				e.preventDefault();
+				var url=$(this).attr("href");
+				$.get(url,function(data){
+					$(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+					//scroll-to appended content 
+					$(".content").mCustomScrollbar("scrollTo","h2:last");
+				});
+			});
+			
+			$(".content").delegate("a[href='top']","click",function(e){
+				e.preventDefault();
+				$(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+			});
+			
+		});
+	})(jQuery);
+</script> 
+
+
+
+
+
+
+{template footer}
