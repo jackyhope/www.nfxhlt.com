@@ -49,7 +49,7 @@ return array(
 	'host'     => '10.30.88.15', 
 	'username' => 'SAP', 
 	'password' => 'bffebfb01900fe3af8a8633d3b0b7be2', 
-	'dbname'   => 'nfxh', 
+	'dbname'   => 'nfxh_offical', 
 	'prefix'   => 'fn_', 
 	'charset'  => 'utf8', 
 	'port'     => '3306', 
