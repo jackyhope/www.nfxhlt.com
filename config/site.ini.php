@@ -6,6 +6,6 @@ if (!defined('IN_FINECMS')) exit();
  */
 return array(
 
-	'1'  => 'nfxh.8617.cc', 
+	'1'  => 'www.nfxhlt.com', 
 
 );
