@@ -1,129 +1,130 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{$meta_title}</title>
-<meta name="keywords" content="{$meta_keywords}" />
-<meta name="description" content="{$meta_description}" />
-<link href="{SITE_THEME}css/gloce.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="{SITE_THEME}js/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="{SITE_THEME}js/jquery_002.js"></script>
-<script src="{SITE_THEME}js/MSClass.js" type="text/javascript"></script>
-<script src="{SITE_THEME}js/koala.min.1.5.js"></script>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{$meta_title}</title>
+        <meta name="keywords" content="{$meta_keywords}" />
+        <meta name="description" content="{$meta_description}" />
+        <link href="{SITE_THEME}css/gloce.css" rel="stylesheet" type="text/css"/>
+        <link href="/favicon.ico" rel="shortcut icon" />
+        <script type="text/javascript" src="{SITE_THEME}js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="{SITE_THEME}js/jquery_002.js"></script>
+        <script src="{SITE_THEME}js/MSClass.js" type="text/javascript"></script>
+        <script src="{SITE_THEME}js/koala.min.1.5.js"></script>
 
 
-</head>
+    </head>
 
-{if $cats[$catid]['parentid']==0}{php $aa=$catid;}
-{else}
+    {if $cats[$catid]['parentid']==0}{php $aa=$catid;}
+    {else}
     {php $bb=$cats[$catid]['parentid'];}
     {if $cats[$bb]['parentid']==0}{php $aa=$bb;}
     {else}
-        {php $cc=$cats[$bb]['parentid'];}
-        {if $cats[$cc]['parentid']==0}{php $aa=$cc;}
-        {else}
-            {php $aa=$cats[$cc]['parentid'];}
-        {/if}
+    {php $cc=$cats[$bb]['parentid'];}
+    {if $cats[$cc]['parentid']==0}{php $aa=$cc;}
+    {else}
+    {php $aa=$cats[$cc]['parentid'];}
     {/if}
-{/if}
+    {/if}
+    {/if}
 
 
 
-<body>
-<div class="header" id="Jnav">
-	<div class="headz">
-    	<div class="headz-a"><a href="{SITE_URL}" title=""><img src="{SITE_URL}{block(1)}" /></a></div>
-        <div class="headz-b">
-        	<div class="headz-b1">
-            	<ul>
-                	<li {if $indexc==1}class="on"{/if}><a href="{SITE_URL}" title="">首页</a></li>
-                    {php $i==0;}
-                    {loop $cats $t}
-                    {if $t['parentid']==0 && $t['ismenu']}
-                    {php $arrchilds = @explode(',', $t['arrchilds']);}
-                    {if $i==0}
-                    <li class="xlk {if isset($catid) && in_array($catid, $arrchilds)} on{/if}">
-                    {else}
-                    <li class="xlk xlk-a{$i} {if isset($catid) && in_array($catid, $arrchilds)} on{/if}">
-                    {/if}
-                        <a href="{$t['url']}" title="{$t['catname']}">{$t['catname']}</a>
-                    </li>
-                    {php $i++;}
-                    {/if}
-                    {/loop}
-                    
-                </ul>
-            </div>
-            <div class="headz-b2">
-            	<p><span>咨询热线：</span></p>
-                <p><font><!--咨询热线-->{block(2)}<!--咨询热线--></font></p>
-            </div>
-        </div>
-    </div>
-    <div class="xlhg">
-    	<div class="xlhg-a">
-        	<div class="xlhg-a1"><i><img src="{SITE_THEME}images/jt1.png" /></i></div>
-        </div>
-        <div class="xlhg-b">
-        	<div class="xlhg-b1">
-            {php $i=1;}
-                {loop $cats $t}
-                {if $t['parentid']==0 && $t['ismenu']}
-                    {php $ischild=0;}
-                    {loop $cats $tt}
-                        {if $tt['parentid']==$t['catid'] && $tt['ismenu']}
-                            {php $ischild=1;}
-                        {/if}
-                    {/loop}
+    <body>
+        <div class="header" id="Jnav">
+            <div class="headz">
+                <div class="headz-a"><a href="{SITE_URL}" title=""><img src="{SITE_URL}{block(1)}" /></a></div>
+                <div class="headz-b">
+                    <div class="headz-b1">
+                        <ul>
+                            <li {if $indexc==1}class="on"{/if}><a href="{SITE_URL}" title="">首页</a></li>
+                            {php $i==0;}
+                            {loop $cats $t}
+                            {if $t['parentid']==0 && $t['ismenu']}
+                            {php $arrchilds = @explode(',', $t['arrchilds']);}
+                            {if $i==0}
+                            <li class="xlk {if isset($catid) && in_array($catid, $arrchilds)} on{/if}">
+                                {else}
+                                <li class="xlk xlk-a{$i} {if isset($catid) && in_array($catid, $arrchilds)} on{/if}">
+                                    {/if}
+                                    <a href="{$t['url']}" title="{$t['catname']}">{$t['catname']}</a>
+                                </li>
+                                {php $i++;}
+                                {/if}
+                                {/loop}
 
-                
-            	<div class="xlhg-b1a" {if $i==1}style="width:158px;min-height:10px;"{else if $i==2}style="width:125px;min-height:10px;"{else if $i==3}style="width:123px;min-height:10px;"{/if}>
-                	<!--<div><span>{$t['catname']}</span></div>-->
-                    <ul>
-						{loop $cats $ttt}
-						{if $ttt['parentid']==$t['catid'] && $ttt['ismenu']}
-						<li><a href="{$ttt['url']}" title="{$ttt['catname']}">{$ttt['catname']} </a></li>
-						{/if}
-						{/loop}
-                    </ul>
+                        </ul>
+                    </div>
+                    <div class="headz-b2">
+                        <p><span>咨询热线：</span></p>
+                        <p><font><!--咨询热线-->{block(2)}<!--咨询热线--></font></p>
+                    </div>
                 </div>
-                {php $i++;}
-                
-                {/if}
-                {/loop}
-                
-                
             </div>
+            <div class="xlhg">
+                <div class="xlhg-a">
+                    <div class="xlhg-a1"><i><img src="{SITE_THEME}images/jt1.png" /></i></div>
+                </div>
+                <div class="xlhg-b">
+                    <div class="xlhg-b1">
+                        {php $i=1;}
+                        {loop $cats $t}
+                        {if $t['parentid']==0 && $t['ismenu']}
+                        {php $ischild=0;}
+                        {loop $cats $tt}
+                        {if $tt['parentid']==$t['catid'] && $tt['ismenu']}
+                        {php $ischild=1;}
+                        {/if}
+                        {/loop}
+
+
+                        <div class="xlhg-b1a" {if $i==1}style="width:158px;min-height:10px;"{else if $i==2}style="width:125px;min-height:10px;"{else if $i==3}style="width:123px;min-height:10px;"{/if}>
+                             <!--<div><span>{$t['catname']}</span></div>-->
+                             <ul>
+                                {loop $cats $ttt}
+                                {if $ttt['parentid']==$t['catid'] && $ttt['ismenu']}
+                                <li><a href="{$ttt['url']}" title="{$ttt['catname']}">{$ttt['catname']} </a></li>
+                                {/if}
+                                {/loop}
+                            </ul>
+                        </div>
+                        {php $i++;}
+
+                        {/if}
+                        {/loop}
+
+
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
-    
-</div>
 
 
 
 
-<script type="text/javascript">
-var $nav = $('#Jnav'), navTop = $nav.offset().top, navH = $nav.outerHeight(),winTop_1=0,winWidth=$(window).width(), holder=jQuery('<div>');
-$(window).on('scroll',function(){
- var winTop_2 = $(window).scrollTop();
- 
- //开始浮动，不过不显示
- if(winTop_2>0){
- holder.show().insertBefore($nav);
- $nav.addClass('fixed-nav');
- }else{
- holder.hide();
- $nav.removeClass('fixed-nav');
- }
- //判断鼠标向上滚动，显示出来
- if(winTop_2>=0){
- $nav.removeClass('fixed-nav-appear');
- }else if(winTop_2<winTop_1){
- $nav.addClass('fixed-nav-appear');
- }
- winTop_1 = $(window).scrollTop();
-})
-</script>
+        <script type="text/javascript">
+            var $nav = $('#Jnav'), navTop = $nav.offset().top, navH = $nav.outerHeight(), winTop_1 = 0, winWidth = $(window).width(), holder = jQuery('<div>');
+            $(window).on('scroll', function () {
+                var winTop_2 = $(window).scrollTop();
+
+                //开始浮动，不过不显示
+                if (winTop_2 > 0) {
+                    holder.show().insertBefore($nav);
+                    $nav.addClass('fixed-nav');
+                } else {
+                    holder.hide();
+                    $nav.removeClass('fixed-nav');
+                }
+                //判断鼠标向上滚动，显示出来
+                if (winTop_2 >= 0) {
+                    $nav.removeClass('fixed-nav-appear');
+                } else if (winTop_2 < winTop_1) {
+                    $nav.addClass('fixed-nav-appear');
+                }
+                winTop_1 = $(window).scrollTop();
+            })
+        </script>
 
 
 
@@ -133,4 +134,4 @@ $(window).on('scroll',function(){
 
 
 
-<script type="text/javascript" src="{SITE_THEME}js/xfl.js"></script>
+        <script type="text/javascript" src="{SITE_THEME}js/xfl.js"></script>
