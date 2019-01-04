@@ -22,7 +22,7 @@ return array(
 } else if (strpos($_SERVER['SERVER_ADDR'], '192.168.116.31') !== FALSE) {//测试环境2
 return array(
 
-	'host'     => '192.168.116.27', 
+	'host'     => '192.168.116.20', 
 	'username' => 'root', 
 	'password' => '123456', 
 	'dbname'   => 'nfxh', 
@@ -34,7 +34,7 @@ return array(
 } else if (strpos($_SERVER['SERVER_ADDR'], '192.168') !== FALSE) { //本地环境
 return array(
 
-	'host'     => '192.168.116.27', 
+	'host'     => '192.168.116.20', 
 	'username' => 'root', 
 	'password' => '123456', 
 	'dbname'   => 'nfxh', 
