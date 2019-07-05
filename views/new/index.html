@@ -161,7 +161,7 @@ $(window).scroll(function(){
         		{list catid=31 order=listorder_asc more=1}
             	<li>
                 	<div class="nf3z-b1"><div><img src="{$t['thumb']}" /></div></div>
-                    <div class="nf3z-b2">{$t['title']}</div>
+                        <div class="nf3z-b2">{if $t['title']=='房地产/建筑/物业'}<a href="/realestate/">{$t['title']}</a>{else} {$t['title']}{/if}</div>
                 </li>
                 {/list}
                 
