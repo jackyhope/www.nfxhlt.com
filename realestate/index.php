@@ -18,7 +18,7 @@
         <p class="p2">南方新华将房地产划分为3大行业，每个行业再细分岗位并由专业的房地产猎头团队负责，为企业人才招聘保驾护航。</p>
         <div class="se">
             <div class="tab">
-                <div class="choosed">
+                <div scroll='1' class="choosed">
                     <img src="img/4_03.png" alt="">
                     <img src="img/5_03.png" alt="">
                     <div class="tbox">
@@ -26,7 +26,7 @@
                         <span>专注房地产开发全国top20，区域top5</span>
                     </div>
                 </div>
-                <div>
+                <div scroll='2'>
                     <img src="img/5_12.png" alt="">
                     <img src="img/4_12.png" alt="">
                     <div class="tbox">
@@ -34,7 +34,7 @@
                         <span>专注建筑/景观设计全国top20</span>
                     </div>
                 </div>
-                <div>
+                <div scroll='3'>
                     <img src="img/1-2.png" alt="">
                     <img src="img/1-2-1.png" alt="">
                     <div class="tbox">
@@ -81,8 +81,8 @@
                             </div>
                             <img src="img/3_11.png" alt="" class="scroll_right">
                         </div>
-                        <span class="sp4">Tiger</span>
-                        <span class="sp5">10年人力资源服务行业工作 经历，项目操作经验非常丰富， 高效卓越</span>
+                        <span class="sp4">LEO</span>
+                        <span class="sp5">专注房地产行业招聘10年，行业深度挖掘，人脉资源丰富，服务众多名企</span>
                     </div>
                 </div>
             </div>
@@ -142,12 +142,9 @@
                 <div id="certify">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="img/s3.png" alt=""><span>专业猎头</span></div>
-                            <div class="swiper-slide"><img src="img/s1.png" alt=""><span>慧入职</span></div>
-                            <div class="swiper-slide"><img src="img/s2.png" alt=""><span>慧面试</span></div>
-                            <div class="swiper-slide"><img src="img/s3.png" alt=""><span>专业猎头</span></div>
-                            <div class="swiper-slide"><img src="img/s1.png" alt=""><span>慧入职</span></div>
-                            <div class="swiper-slide"><img src="img/s2.png" alt=""><span>慧面试</span></div>
+                            <div class="swiper-slide"><img src="img/s2.jpg" alt=""><span>慧入职</span></div>
+                            <div class="swiper-slide"><img src="img/s1.jpg" alt=""><span>慧面试</span></div>
+                            <div class="swiper-slide"><img src="img/s3.jpg" alt=""><span>专业猎头</span></div>
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
@@ -155,7 +152,7 @@
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
-            <!--<span class="sp7">点此获取招聘费用</span>-->
+            <span class="sp7">点此获取招聘费用</span>
             <div class="ball">
                 <span>服务流程</span>
                 <div class="divide"></div>
@@ -171,7 +168,7 @@
                     <span class="liusp7"><span>聘后EAP心理辅导</span><br>服务+辅导，完整评估体系</span>
                     <span class="liusp8"><span>售后服务与HR活动支持</span><br>满意度调查，丰富线上活动</span>
                 </div>
-                <!--<span class="online">在线咨询</span>-->
+                <span class="online">在线咨询</span>
             </div>
         </div>
     </section>

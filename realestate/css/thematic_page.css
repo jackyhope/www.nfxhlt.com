@@ -218,8 +218,10 @@ img{
 }
 .sec2box>span{
     background: #A10705;
-    line-height: 30px;
+    line-height: 40px;
     color: #fff;
+    font-size: 24px;
+    padding: 0 15px;
 }
 .sec2box .div1{
     display: flex;
@@ -344,7 +346,7 @@ img{
 	width: 520px;
 	height: 340px;
 	background: #fff;
-    box-shadow: 0 8px 30px #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
     position: relative;
 }
 #certify  .swiper-slide img{
@@ -357,13 +359,13 @@ img{
     color: #a10705;
     background: rgba(255, 255, 255, .5);
     position: absolute;
-    width: 100px;
+    width: 150px;
     text-align: center;
-    line-height: 30px;
+    line-height: 50px;
     font-weight: 600;
     top: 160px;
     left: 210px;
-    font-size: 18px;
+    font-size: 28px;
 }
 
 #certify .swiper-pagination {
@@ -571,6 +573,7 @@ textarea{
     line-height: 50px;
     border: none;
     margin-top: 30px;
+    font-size: 20px;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
